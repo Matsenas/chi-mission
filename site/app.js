@@ -649,9 +649,10 @@ function wireEvents() {
   about.addEventListener('click', (e) => { if (e.target === about) about.close(); });
 
   document.addEventListener('keydown', (e) => {
-    if (e.metaKey || e.ctrlKey || e.altKey || about.open) return;
-    if (e.target.matches?.('input, textarea')) return;
+    if (e.metaKey || e.ctrlKey || e.altKey || e.target.matches?.('input:not([type=checkbox]), textarea')) return;
     const k = e.key.toLowerCase();
+    if (k === 'm') return toggleTheme(); // also works with the About dialog open
+    if (about.open) return;
     if (k === 'j' || (S.mobile && k === 'arrowright')) { e.preventDefault(); step(1); }
     else if (k === 'k' || (S.mobile && k === 'arrowleft')) { e.preventDefault(); step(-1); }
     else if (k === 'n') { sw.checked = !sw.checked; sw.dispatchEvent(new Event('change')); }
@@ -784,6 +785,17 @@ function wireMap() {
     setHover(null);
   });
   map.addEventListener('wheel', () => { tip.hidden = true; }, { passive: true });
+}
+
+/* Light/dark mode: follows the system until the reader presses M, then remembers the choice. */
+const DARK = matchMedia('(prefers-color-scheme: dark)');
+function toggleTheme() {
+  const current = root.dataset.theme || (DARK.matches ? 'dark' : 'light');
+  const next = current === 'dark' ? 'light' : 'dark';
+  root.dataset.theme = next;
+  const colour = getComputedStyle(root).getPropertyValue('--bg').trim();
+  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = colour;
+  prefs.set('theme', next);
 }
 
 function gap() {

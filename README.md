@@ -9,7 +9,7 @@ A reader's edition of *AI-Mediated Feedback Improves Student Revisions: A Random
 - **Notes switch** (or `N`) hides every note for a clean read.
 - **Mobile:** dots in the page margin open notes in a bottom sheet with previous/next.
 - **Deep links:** `#note-42` opens note 42. Each note has a "Copy link" button.
-- **Keyboard:** `J`/`K` step through notes, `Esc` closes.
+- **Keyboard:** `J`/`K` step through notes, `N` hides or shows notes, `M` switches light and dark mode (remembered per browser), `Esc` closes.
 
 ## Layout
 
