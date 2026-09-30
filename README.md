@@ -9,7 +9,7 @@ A reader's edition of *AI-Mediated Feedback Improves Student Revisions: A Random
 - **Download menu:** the paper on its own, or with every note as a highlight and comment.
 - **Mobile:** dots in the page margin open notes in a bottom sheet with previous/next.
 - **Deep links:** `#note-42` opens note 42. Each open note has a small link icon that copies its link.
-- **Keyboard:** `J`/`K` step through notes, `N` hides or shows notes, `M` switches light and dark mode (remembered per browser), `Esc` closes. `S` is for the author: sign in or out of edit mode.
+- **Keyboard:** `J`/`K` previous and next note, `N` hides or shows notes, `M` switches light and dark mode (remembered per browser), `Esc` closes. `S` is for the author: sign in or out of edit mode.
 
 ## Layout
 

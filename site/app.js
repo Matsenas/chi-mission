@@ -758,8 +758,8 @@ function wireEvents() {
     if (k === 'm') return toggleTheme(); // also works with the About dialog open
     if (about.open) return;
     if (k === 's') return toggleSession();
-    if (k === 'j' || (S.mobile && k === 'arrowright')) { e.preventDefault(); step(1); }
-    else if (k === 'k' || (S.mobile && k === 'arrowleft')) { e.preventDefault(); step(-1); }
+    if (k === 'k' || (S.mobile && k === 'arrowright')) { e.preventDefault(); step(1); } // K: next note
+    else if (k === 'j' || (S.mobile && k === 'arrowleft')) { e.preventDefault(); step(-1); } // J: previous note
     else if (k === 'n') toggleNotes();
     else if (k === 'escape') {
       if (S.mobile) return closeSheet();
