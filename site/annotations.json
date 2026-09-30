@@ -58,6 +58,27 @@
  ],
  "notes": [
   {
+   "id": 132,
+   "page": 1,
+   "lens": 5,
+   "rects": [
+    [
+     508.4,
+     582.7,
+     558.2,
+     595.2
+    ],
+    [
+     53.8,
+     593.7,
+     460.8,
+     606.2
+    ]
+   ],
+   "passage": "AI-mediated feedback authored through FeedbackWriter has higher benefits compared to human-only feedback",
+   "text": "One-liner of results"
+  },
+  {
    "id": 1,
    "page": 1,
    "lens": 5,
@@ -79,19 +100,19 @@
    "text": "A way to picture the size of the improvement. If a student was exactly average in the class (better than 50% of classmates), the same student would now be better than about 70% of them."
   },
   {
+   "id": 2,
    "page": 1,
    "lens": 1,
    "rects": [
     [
-     475.9,
-     615.8,
+     507.3,
+     615.7,
      558.4,
-     627.8
+     628.1
     ]
    ],
-   "passage": "such as actionability",
-   "text": "Actionability: the feedback tells the student something concrete they can do next, rather than just naming what is wrong. 'Consider how the tax affects both sides of the market' is actionable; 'incomplete analysis' is not.",
-   "id": 2
+   "passage": "actionability",
+   "text": "Actionability: the feedback tells the student something concrete they can do next, rather than just naming what is wrong. E.g. \"Consider how the tax affects both sides of the market\" is actionable compared to \"incomplete analysis\""
   },
   {
    "page": 1,
@@ -109,19 +130,25 @@
    "id": 3
   },
   {
+   "id": 4,
    "page": 1,
    "lens": 2,
    "rects": [
     [
      386.2,
-     668.6,
+     668.3,
      558.2,
-     680.5
+     680.7
+    ],
+    [
+     317.6,
+     679.2,
+     492.6,
+     691.6
     ]
    ],
-   "passage": "little is known about how students respond to",
-   "text": "Researchers have built many tools that use AI to comment on student writing. Almost none of them checked whether students' work actually improved afterwards. That is the hole this study sets out to fill.",
-   "id": 4
+   "passage": "little is known about how students respond to AI-mediated versus human-provided feedback",
+   "text": "Suggests tools that use AI to comment on student writing have been built, but almost no research has been done on whether students' work actually improved afterwards. That is the hole this study sets out to fill."
   },
   {
    "page": 2,
@@ -2209,5 +2236,5 @@
    "id": 131
   }
  ],
- "nextId": 132
+ "nextId": 133
 }
