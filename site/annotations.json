@@ -1018,6 +1018,36 @@
    "text": "Design goals are the requirements the team wrote down before building, each traceable to something observed in the formative study. DG3 in particular, making AI mistakes easy to spot and fix, is what the conclusion later credits for the result."
   },
   {
+   "id": 141,
+   "page": 6,
+   "lens": 3,
+   "rects": [
+    [
+     92.2,
+     193.8,
+     216.9,
+     206.3
+    ]
+   ],
+   "passage": "The design of FeedbackWriter",
+   "text": "Process diagram covering both the TA's cognitive process as well as the application (LLM pipeline and UI) processes."
+  },
+  {
+   "id": 142,
+   "page": 6,
+   "lens": 3,
+   "rects": [
+    [
+     91.8,
+     524.2,
+     196.9,
+     536.6
+    ]
+   ],
+   "passage": "FeedbackWriter interface",
+   "text": "Visual sample of their solution."
+  },
+  {
    "page": 7,
    "lens": 1,
    "rects": [
@@ -1153,6 +1183,7 @@
    "id": 48
   },
   {
+   "id": 49,
    "page": 8,
    "lens": 3,
    "rects": [
@@ -1164,23 +1195,28 @@
     ]
    ],
    "passage": "Example changes made to adapt the originally TA-facing rubrics for LLM.",
-   "text": "Worth reading in full. 'Perform a thorough welfare analysis' means something specific to a TA who sat through the lectures; to a model it means nothing. Making the tacit explicit is most of the work here, and it improved consistency among the human graders too.",
-   "id": 49
+   "text": "Worth reading in full. 'Perform a thorough welfare analysis' means something specific to a TA who sat through the lectures, less for an AI model without the context. Making the tacit explicit is most of the work here, and it improved consistency among the human graders too."
   },
   {
+   "id": 50,
    "page": 8,
    "lens": 4,
    "rects": [
     [
-     342.4,
-     619.6,
-     504.6,
-     631.5
+     172.3,
+     685.1,
+     295.5,
+     697.5
+    ],
+    [
+     53.8,
+     696,
+     114.3,
+     708.4
     ]
    ],
-   "passage": "RQ1: How does AI-mediated feedback affect",
-   "text": "Five research questions. RQ1 and RQ2 ask whether it worked, for students and for feedback quality. RQ3 through RQ5 ask how TAs actually behaved with the tool, which is where most of the practical lessons are.",
-   "id": 50
+   "passage": "We investigated the following research questions",
+   "text": "Five research questions. RQ1 and RQ2 ask whether it worked, for students and for feedback quality. RQ3 through RQ5 ask how TAs actually behaved with the tool, which is where most of the practical lessons are."
   },
   {
    "page": 9,
@@ -2488,5 +2524,5 @@
    "id": 131
   }
  ],
- "nextId": 141
+ "nextId": 143
 }
