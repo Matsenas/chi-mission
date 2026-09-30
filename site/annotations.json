@@ -616,6 +616,27 @@
    "id": 20
   },
   {
+   "id": 140,
+   "page": 2,
+   "lens": 8,
+   "rects": [
+    [
+     317.9,
+     664.7,
+     558.2,
+     677.2
+    ],
+    [
+     317.9,
+     675.7,
+     389,
+     688.2
+    ]
+   ],
+   "passage": "requiring instructors to review and confirm every message before sending to students",
+   "text": "I wonder whether the results would have differed significantly if the feedback boxes and scores were also pre-filled by the AI"
+  },
+  {
    "page": 2,
    "lens": 2,
    "rects": [
@@ -631,102 +652,133 @@
    "id": 21
   },
   {
+   "id": 22,
    "page": 3,
    "lens": 5,
    "rects": [
     [
      342.1,
      420.5,
-     542.3,
-     432.5
+     558.2,
+     432.9
+    ],
+    [
+     342.3,
+     431.4,
+     557.1,
+     443.9
     ]
    ],
-   "passage": "TAs found the AI suggestions to be generally accurate",
-   "text": "Finding 4. The people using the tool trusted it, mostly because it caught student errors they had missed and because fixing its mistakes was cheap.",
-   "id": 22
+   "passage": "TAs found the AI suggestions to be generally accurate and helped them uncover overlooked errors in student essays",
+   "text": "The people using the tool trusted it, mostly because it caught student errors they had missed and because fixing its mistakes was cheap."
   },
   {
+   "id": 23,
    "page": 3,
    "lens": 4,
    "rects": [
     [
-     155.4,
-     530.1,
+     155.3,
+     530,
      294,
-     542.1
+     542.4
+    ],
+    [
+     53.8,
+     541,
+     123.7,
+     553.4
     ]
    ],
-   "passage": "The conditions were reversed for the",
-   "text": "Called counterbalancing. Every TA and every student experienced both versions, just in opposite orders. This removes the worry that one group simply had better TAs or an easier assignment.",
-   "id": 23
+   "passage": "The conditions were reversed for the second assignment",
+   "text": "Called counterbalancing. Every TA and every student experienced both versions, just in opposite orders. This removes the worry that one group simply had better TAs or an easier assignment."
   },
   {
+   "id": 24,
    "page": 3,
    "lens": 5,
    "rects": [
     [
-     118.9,
-     617.8,
-     294,
-     629.8
+     118.8,
+     617.6,
+     294.1,
+     630
+    ],
+    [
+     77.9,
+     628.6,
+     207.8,
+     641
     ]
    ],
-   "passage": "The effect is larger when the TAs adopted more",
-   "text": "Finding 1, and the headline. Note the second half of the sentence: the benefit grew with how much AI-drafted feedback the TA actually used. See my question on page 17 about how firm that part is.",
-   "id": 24
+   "passage": "The effect is larger when the TAs adopted more AI-suggested constructive feedback",
+   "text": "The headline finding. The benefit grew with how much AI-drafted feedback the TA actually used. See my question on page 17 about how firm that part is."
   },
   {
+   "id": 25,
    "page": 3,
    "lens": 1,
    "rects": [
     [
      317.5,
-     621.2,
-     558.2,
-     633.2
+     621,
+     404.9,
+     633.4
     ]
    ],
-   "passage": "Writing-to-Learn (WTL) is a widely adopted instructional approach",
-   "text": "Writing-to-Learn: assigning writing not to teach writing, but to force students to think through subject matter. The essay is a vehicle for learning economics, not an end in itself.",
-   "id": 25
+   "passage": "Writing-to-Learn (WTL)",
+   "text": "Writing-to-Learn: assigning writing not to teach writing, but to force students to think through subject matter. The essay is a vehicle for learning economics, not an end in itself."
   },
   {
+   "id": 26,
    "page": 3,
    "lens": 5,
    "rects": [
     [
-     224,
-     661.6,
-     292.5,
-     673.6
+     223.9,
+     661.4,
+     295.5,
+     673.8
+    ],
+    [
+     78.2,
+     672.3,
+     294.1,
+     684.8
+    ],
+    [
+     78.2,
+     683.3,
+     100.7,
+     695.7
     ]
    ],
-   "passage": "there is no statisti­",
-   "text": "Finding 2, and the one the abstract leaves out. Students wrote better revisions, but scored no better on the quiz afterwards. Better work did not translate into measurably more learning.",
-   "id": 26
+   "passage": "there is no statistical difference between the two conditions on the post-test scores",
+   "text": "Students wrote better revisions, but scored no better on the quiz afterwards. Better work did not translate into measurably more learning."
   },
   {
+   "id": 27,
    "page": 4,
    "lens": 2,
    "rects": [
     [
      500.2,
-     106.1,
-     560.5,
-     118.1
+     106.3,
+     558.2,
+     118.7
     ],
     [
-     318,
-     119.8,
-     347.2,
-     128.8
+     317.9,
+     117.2,
+     495.5,
+     129.7
     ]
    ],
-   "passage": "Human experts remains",
-   "text": "The broader shift this paper sits inside: across education technology, researchers have moved from trying to automate the teacher to trying to assist the teacher, keeping a human responsible for what reaches students.",
-   "id": 27
+   "passage": "Human experts remains “in the loop” for guidance and oversight",
+   "text": "The broader shift this paper sits inside: across education technology, researchers have moved from trying to automate the teacher to trying to assist the teacher, keeping a human responsible for what reaches students."
   },
   {
+   "id": 28,
    "page": 4,
    "lens": 2,
    "rects": [
@@ -738,44 +790,49 @@
     ]
    ],
    "passage": "students rejected more than 40% of the AI feedback",
-   "text": "A telling earlier result. When students could not tell which comments came from a human, they dismissed over 40% of the AI ones but fewer than 20% of the instructors'. Something about AI feedback reads as less useful even when its source is hidden.",
-   "id": 28
+   "text": "When students could not tell which comments came from a human, they dismissed over 40% of the AI ones but fewer than 20% of the instructors'. So something about AI feedback reads as less useful even when its source is hidden."
   },
   {
+   "id": 29,
    "page": 4,
    "lens": 1,
    "rects": [
     [
-     433.7,
-     423.9,
-     558.2,
-     435.9
+     448.6,
+     423.8,
+     506.3,
+     436.3
     ]
    ],
-   "passage": "the INSPIRE model characterizes",
-   "text": "INSPIRE is a checklist of what good human tutors do: be intelligent, nurturant, Socratic, progressive, indirect, reflective and encouraging. The authors borrow four of these ideas as their quality measures.",
-   "id": 29
+   "passage": "INSPIRE model",
+   "text": "INSPIRE is a checklist of what good human tutors do: be intelligent, nurturant, Socratic, progressive, indirect, reflective and encouraging. The authors borrow four of these ideas as their quality measures."
   },
   {
+   "id": 30,
    "page": 4,
    "lens": 2,
    "rects": [
     [
-     183.8,
-     440.4,
-     296.2,
-     452.3
+     186,
+     440.3,
+     294.1,
+     452.7
     ],
     [
      53.8,
-     451.3,
-     171.2,
-     463.3
+     451.2,
+     295.6,
+     463.6
+    ],
+    [
+     53.8,
+     462.2,
+     205.8,
+     474.6
     ]
    ],
-   "passage": "tend to prioritize grammar and syntax mistakes, whereas expert",
-   "text": "A known failure pattern: AI reaches for surface errors like grammar, while expert teachers go after misunderstandings. That is precisely the gap a knowledge-intensive essay exposes.",
-   "id": 30
+   "passage": "end to prioritize grammar and syntax mistakes, whereas expert feedback often addresses “higherorder” and knowledge-level concerns [108]",
+   "text": "A known failure pattern: AI reaches for surface errors like grammar, while expert teachers go after misunderstandings. That is precisely the gap a knowledge-intensive essay exposes."
   },
   {
    "page": 4,
@@ -814,19 +871,19 @@
    "id": 32
   },
   {
+   "id": 33,
    "page": 5,
    "lens": 1,
    "rects": [
     [
-     53.4,
-     97.9,
-     176.3,
-     109.9
+     116.6,
+     98.1,
+     178.8,
+     110.5
     ]
    ],
-   "passage": "We conducted a formative study",
-   "text": "A formative study is preliminary fieldwork done before building anything, to learn how people currently work. Designing the tool first and asking questions later is how you end up with software nobody uses.",
-   "id": 33
+   "passage": "formative study",
+   "text": "A formative study is preliminary fieldwork done before building anything, to learn how people currently work. Designing the tool first and asking questions later is how you end up with software nobody uses."
   },
   {
    "page": 5,
@@ -844,6 +901,7 @@
    "id": 34
   },
   {
+   "id": 35,
    "page": 5,
    "lens": 4,
    "rects": [
@@ -855,8 +913,7 @@
     ]
    ],
    "passage": "they had overlooked student mistakes",
-   "text": "A finding that shapes everything after it. When TAs thought aloud, several discovered errors they had missed on their first pass, and worried about fairness. This is the human weakness the AI is meant to cover.",
-   "id": 35
+   "text": "When TAs thought aloud, several discovered errors they had missed on their first pass, and worried about fairness. This is the human weakness the AI is meant to cover."
   },
   {
    "page": 5,
@@ -2443,5 +2500,5 @@
    "id": 131
   }
  ],
- "nextId": 140
+ "nextId": 141
 }
