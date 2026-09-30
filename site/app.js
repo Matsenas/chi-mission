@@ -108,6 +108,25 @@ function buildPages(count) {
   }
 }
 
+/* Small chain-link icon that copies a link to the note; its tooltip confirms the copy. */
+function linkButton(id) {
+  const b = el('button', 'link-icon');
+  b.type = 'button';
+  b.dataset.copy = id;
+  b.dataset.tip = 'Copy link';
+  b.setAttribute('aria-label', 'Copy link to this note');
+  const svg = document.createElementNS(SVG, 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('aria-hidden', 'true');
+  for (const d of ['M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71', 'M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71']) {
+    const path = document.createElementNS(SVG, 'path');
+    path.setAttribute('d', d);
+    svg.append(path);
+  }
+  b.append(svg);
+  return b;
+}
+
 /* Each note appears as an underline in the PDF, a margin note, a connector and a map bar.
    Mobile margin dots are rebuilt from the filter state in buildMarkers(). */
 function mountNote(n) {
@@ -132,12 +151,9 @@ function mountNote(n) {
   head.append(el('span', 'note-bar'), preview);
   const body = el('div', 'note-body');
   const foot = el('div', 'note-foot');
-  const link = el('button', 'link-btn', 'Copy link');
-  link.type = 'button';
-  link.dataset.copy = n.id;
   const actions = el('span', 'note-actions');
-  actions.append(link);
-  foot.append(el('span', null, `p. ${n.page}`), actions);
+  actions.append(linkButton(n.id));
+  foot.append(actions);
   body.append(el('p', 'note-text', n.text), foot);
   note.append(head, body);
   rail.append(note);
@@ -550,7 +566,7 @@ function showSheet(n, behavior) {
   const dot = el('span', 'chip-dot');
   dot.style.setProperty('--c', lens.colour);
   dot.style.setProperty('--ink', lens.ink);
-  tag.replaceChildren(dot, `${lens.name} · p. ${n.page}`);
+  tag.replaceChildren(dot, lens.name);
   sheet.style.setProperty('--ink', lens.ink);
   $('#sheet-passage').textContent = `“${n.passage}”`;
   $('#sheet-text').textContent = n.text;
@@ -650,9 +666,13 @@ function wireEvents() {
     if (copy) {
       e.stopPropagation();
       const url = `${location.origin}${location.pathname}#note-${copy.dataset.copy}`;
-      try { await navigator.clipboard.writeText(url); copy.textContent = 'Copied'; }
-      catch { prompt('Link to this note', url); }
-      setTimeout(() => (copy.textContent = 'Copy link'), 1500);
+      try {
+        await navigator.clipboard.writeText(url);
+        copy.dataset.tip = 'Link copied';
+        copy.classList.add('is-copied');
+        clearTimeout(copy.timer);
+        copy.timer = setTimeout(() => { copy.dataset.tip = 'Copy link'; copy.classList.remove('is-copied'); }, 1500);
+      } catch { prompt('Link to this note', url); }
       return;
     }
     const note = e.target.closest('.note');
@@ -805,7 +825,7 @@ function wireMap() {
       const lens = S.lenses.get(n.lens), dot = el('span', 'chip-dot');
       dot.style.setProperty('--c', lens.colour);
       dot.style.setProperty('--ink', lens.ink);
-      head.append(dot, `${lens.name} · p. ${n.page}`);
+      head.append(dot, lens.name);
       tip.append(head, el('div', 'tip-text', n.text));
     } else {
       const y = frac(e) * docHeight();

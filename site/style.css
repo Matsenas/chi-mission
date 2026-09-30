@@ -214,8 +214,24 @@ body.notes-off .gutter, body.notes-off .rail { display: none; }
 .note.is-open .note-preview { font-size: 11.5px; color: var(--muted); letter-spacing: 0.01em; }
 .note.is-open .note-body { display: block; }
 .note-text { margin: 0; font-size: 13.5px; line-height: 1.55; }
-.note-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 11.5px; color: var(--muted); }
-.note-actions { display: flex; gap: 12px; }
+.note-foot { display: flex; justify-content: flex-end; align-items: center; margin-top: 6px; font-size: 11.5px; color: var(--muted); }
+.note-actions { display: flex; align-items: center; gap: 12px; }
+.link-icon {
+  position: relative; display: grid; place-items: center;
+  width: 24px; height: 24px; margin: -4px -6px -4px 0; padding: 0;
+  border: 0; border-radius: 6px; background: none; color: var(--muted); cursor: pointer;
+}
+.link-icon svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.link-icon:hover, .link-icon:focus-visible { color: var(--text); background: var(--hover); }
+/* Tooltip: "Copy link" on hover, "Link copied" after a click. */
+.link-icon::after {
+  content: attr(data-tip); position: absolute; right: 0; bottom: calc(100% + 6px);
+  padding: 4px 8px; border-radius: 6px; white-space: nowrap;
+  background: var(--text); color: var(--bg); font-size: 11px; font-weight: 500;
+  opacity: 0; pointer-events: none; transform: translateY(2px); transition: opacity 0.12s, transform 0.12s;
+}
+.link-icon:hover::after, .link-icon:focus-visible::after, .link-icon.is-copied::after { opacity: 1; transform: none; }
+.link-icon.is-copied { color: var(--text); }
 .link-btn {
   border: 0; background: none; padding: 2px 0; cursor: pointer;
   color: var(--muted); font-size: 11.5px; text-decoration: underline; text-underline-offset: 2px;
