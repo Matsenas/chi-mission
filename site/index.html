@@ -3,21 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
 <title>AI-Mediated Feedback, annotated</title>
 <meta name="description" content="A reader's edition of “AI-Mediated Feedback Improves Student Revisions” (CHI ’26) with 131 margin notes in eight lenses, by Andrius Matsenas.">
 <meta name="theme-color" content="#f3f2ef" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161618" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='3' width='17' height='26' rx='2' fill='%23fff' stroke='%23222' stroke-width='2'/%3E%3Crect x='9' y='10' width='9' height='3' fill='%23ffd23f'/%3E%3Ccircle cx='26' cy='12' r='4' fill='%23ff8a1f'/%3E%3C/svg%3E">
-<script>
-  // Apply a theme chosen with the M key before first paint.
-  try {
-    const t = JSON.parse(localStorage.getItem('chi:theme'));
-    if (t === 'light' || t === 'dark') {
-      document.documentElement.dataset.theme = t;
-      for (const m of document.querySelectorAll('meta[name="theme-color"]')) m.content = t === 'dark' ? '#161618' : '#f3f2ef';
-    }
-  } catch {}
-</script>
+<script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="modulepreload" href="vendor/pdfjs/pdf.min.mjs">
 <link rel="preload" href="annotations.json" as="fetch" crossorigin>
@@ -32,14 +25,19 @@
     </div>
     <div class="bar-actions">
       <button class="icon-btn" id="about-btn" type="button" aria-label="About these notes" title="About these notes">?</button>
-      <a class="icon-btn" href="paper.pdf" download aria-label="Download original PDF" title="Download original PDF">
-        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <label class="switch" title="Show or hide all notes (N)">
-        <input type="checkbox" id="notes-switch" role="switch" checked>
-        <span class="switch-track" aria-hidden="true"></span>
-        <span class="switch-label">Notes</span>
-      </label>
+      <div class="menu-wrap">
+        <button class="icon-btn" id="download-btn" type="button" aria-label="Download" title="Download" aria-haspopup="menu" aria-expanded="false" aria-controls="download-menu">
+          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="menu" id="download-menu" role="menu" aria-label="Download" hidden>
+          <a role="menuitem" href="paper.pdf" download="Lu-et-al-CHI26-FeedbackWriter.pdf">
+            <strong>Paper without annotations</strong><span>The original PDF</span>
+          </a>
+          <a role="menuitem" href="paper-annotated.pdf" download="Lu-et-al-CHI26-FeedbackWriter-annotated.pdf">
+            <strong>Paper with annotations</strong><span>Every note as a highlight with a comment</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="bar-row lens-row">
@@ -59,7 +57,7 @@
   <div class="doc" id="doc">
     <p class="status" id="status" role="status">Loading paper…</p>
   </div>
-  <div class="gutter" aria-hidden="true"><svg id="links" width="100%"></svg></div>
+  <div class="gutter" aria-hidden="true"><svg id="links" class="links" width="100%"></svg></div>
   <aside class="rail" id="rail" aria-label="Margin notes"></aside>
 </main>
 

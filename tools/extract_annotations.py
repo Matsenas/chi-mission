@@ -1,6 +1,11 @@
-"""Extract highlight annotations from the annotated PDF into site/annotations.json.
+"""One-time import: highlight annotations from an annotated PDF into annotations.json.
 
-Usage: python tools/extract_annotations.py [annotated.pdf] [out.json]
+site/annotations.json is the source of truth and is edited in the browser (?edit).
+This script is only for starting over from a PDF, so it refuses to overwrite an
+existing file unless you pass --force. Note ids are renumbered on import, which
+breaks shared #note-N links.
+
+Usage: python tools/extract_annotations.py [annotated.pdf] [out.json] [--force]
 
 Each highlight becomes one note: page, highlight rectangles (PDF points,
 top-left origin), the passage underneath, the comment text and its lens.
@@ -17,8 +22,10 @@ from pathlib import Path
 import pymupdf
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "source" / "second-pass.pdf"
-OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "site" / "annotations.json"
+FORCE = "--force" in sys.argv
+ARGS = [a for a in sys.argv[1:] if a != "--force"]
+SRC = Path(ARGS[0]) if len(ARGS) > 0 else ROOT / "source" / "second-pass.pdf"
+OUT = Path(ARGS[1]) if len(ARGS) > 1 else ROOT / "site" / "annotations.json"
 
 
 def hex_colour(rgb):
@@ -67,6 +74,8 @@ def passage(page, rects, words):
 
 
 def main():
+    if OUT.exists() and not FORCE:
+        raise SystemExit(f"{OUT} already exists and is the source of truth. Pass --force to overwrite it.")
     doc = pymupdf.open(SRC)
     lenses, about = read_legend(doc)
     by_name = {l["name"].lower(): l for l in lenses.values()}
@@ -116,6 +125,7 @@ def main():
         "about": about,
         "lenses": sorted(lenses.values(), key=lambda l: l["id"]),
         "notes": notes,
+        "nextId": len(notes) + 1,  # ids are never reused, so shared #note-N links stay valid
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1))

@@ -11,6 +11,7 @@ const el = (tag, cls, text) => {
 };
 const SVG = 'http://www.w3.org/2000/svg';
 const MOBILE = matchMedia('(max-width: 999px)');
+const EDIT = new URLSearchParams(location.search).has('edit');
 const RAIL = 300, GUTTER = 36, MAP = 60, NOTE_H = 30, OPEN_H = 34, NOTE_GAP = 4;
 
 // Per-viewer preferences only; the page works without them.
@@ -28,7 +29,8 @@ const S = {
   lensOn: new Set(), notesOn: true,
   active: null, hover: null, open: new Set(),
   mobile: MOBILE.matches, scale: 1, pw: 0, ph: 0,
-  pdf: null, pages: [],
+  pdf: null, pages: [], data: null,
+  hooks: { mount: [] }, // edit mode decorates notes as they mount
 };
 
 const reader = $('#reader'), doc = $('#doc'), rail = $('#rail'), links = $('#links'), map = $('#map');
@@ -59,7 +61,7 @@ function buildChips() {
     b.style.setProperty('--c', lens.colour);
     b.style.setProperty('--ink', lens.ink);
     b.title = `${lens.description ? lens.description[0].toUpperCase() + lens.description.slice(1) : lens.name}. Double-click or long-press to show only this lens.`;
-    b.append(el('span', 'chip-dot'), el('span', 'chip-name', lens.name), el('span', 'chip-count', lens.count));
+    b.append(el('span', 'chip-dot'), el('span', 'chip-name', lens.name), el('span', 'chip-count'));
     chips.append(b);
   }
   const all = el('button', 'chip chip-all', 'Show all');
@@ -106,73 +108,127 @@ function buildPages(count) {
   }
 }
 
-function buildMarks() {
-  for (const n of S.notes) {
-    const lens = S.lenses.get(n.lens);
-    n.marks = n.rects.map(([x0, y0, x1, y1]) => {
-      const m = el('div', 'mark');
-      m.style.cssText = `--x:${x0};--y:${y0};--w:${x1 - x0};--h:${y1 - y0};--c:${lens.colour};--ink:${lens.ink}`;
-      S.pages[n.page - 1].marks.append(m);
-      return m;
-    });
-  }
+/* Each note appears as an underline in the PDF, a margin note, a connector and a map bar.
+   Mobile margin dots are rebuilt from the filter state in buildMarkers(). */
+function mountNote(n) {
+  const lens = S.lenses.get(n.lens);
+  n.marks = n.rects.map(([x0, y0, x1, y1]) => {
+    const m = el('div', 'mark');
+    m.style.cssText = `--x:${x0};--y:${y0};--w:${x1 - x0};--h:${y1 - y0};--c:${lens.colour};--ink:${lens.ink}`;
+    S.pages[n.page - 1].marks.append(m);
+    return m;
+  });
+
+  const note = el('div', 'note' + (n.lens === 8 ? ' is-q' : ''));
+  note.dataset.id = n.id;
+  note.tabIndex = 0;
+  note.setAttribute('role', 'button');
+  note.setAttribute('aria-expanded', 'false');
+  note.setAttribute('aria-label', `${lens.name} note on page ${n.page}`);
+  note.style.setProperty('--c', lens.colour);
+  note.style.setProperty('--ink', lens.ink);
+  const head = el('div', 'note-head');
+  const preview = el('p', 'note-preview', n.text);
+  head.append(el('span', 'note-bar'), preview);
+  const body = el('div', 'note-body');
+  const foot = el('div', 'note-foot');
+  const link = el('button', 'link-btn', 'Copy link');
+  link.type = 'button';
+  link.dataset.copy = n.id;
+  const actions = el('span', 'note-actions');
+  actions.append(link);
+  foot.append(el('span', null, `p. ${n.page}`), actions);
+  body.append(el('p', 'note-text', n.text), foot);
+  note.append(head, body);
+  rail.append(note);
+  n.el = note;
+  n.preview = preview;
+  n.actions = actions;
+
+  n.path = document.createElementNS(SVG, 'path');
+  n.dot = document.createElementNS(SVG, 'circle');
+  n.dot.setAttribute('r', 2);
+  for (const e of [n.path, n.dot]) e.style.setProperty('--ink', lens.ink);
+  links.append(n.path, n.dot);
+
+  const [x0, , x1] = n.rects[0];
+  n.mapSide = x1 - x0 > S.pageW * 0.6 ? 'wide' : (x0 + x1) / 2 < S.pageW / 2 ? 'left' : 'right';
+  n.bar = el('div', 'map-bar');
+  n.bar.style.setProperty('--ink', lens.ink);
+  n.bar.style.left = n.mapSide === 'right' ? '54%' : '10%';
+  n.bar.style.right = n.mapSide === 'left' ? '54%' : '10%';
+  $('#map-bars').append(n.bar);
+
+  for (const hook of S.hooks.mount) hook(n);
 }
 
-function buildRail() {
-  for (const n of S.notes) {
-    const lens = S.lenses.get(n.lens);
-    const note = el('div', 'note' + (n.lens === 8 ? ' is-q' : ''));
-    note.dataset.id = n.id;
-    note.tabIndex = 0;
-    note.setAttribute('role', 'button');
-    note.setAttribute('aria-expanded', 'false');
-    note.style.setProperty('--c', lens.colour);
-    note.style.setProperty('--ink', lens.ink);
-
-    const head = el('div', 'note-head');
-    const preview = el('p', 'note-preview', n.text);
-    head.append(el('span', 'note-bar'), preview);
-
-    const body = el('div', 'note-body');
-    const foot = el('div', 'note-foot');
-    const link = el('button', 'link-btn', 'Copy link');
-    link.type = 'button';
-    link.dataset.copy = n.id;
-    foot.append(el('span', null, `p. ${n.page}`), link);
-    body.append(el('p', 'note-text', n.text), foot);
-    note.append(head, body);
-    note.setAttribute('aria-label', `${lens.name} note on page ${n.page}`);
-    rail.append(note);
-    n.el = note;
-    n.preview = preview;
-
-    const path = document.createElementNS(SVG, 'path');
-    const dot = document.createElementNS(SVG, 'circle');
-    dot.setAttribute('r', 2);
-    for (const e of [path, dot]) e.style.setProperty('--ink', lens.ink);
-    links.append(path, dot);
-    n.path = path;
-    n.dot = dot;
-  }
-  links.classList.add('links');
+function unmountNote(n) {
+  for (const m of n.marks) m.remove();
+  for (const e of [n.el, n.path, n.dot, n.bar]) e.remove();
+  if (S.active === n.id) setActive(null);
+  if (S.hover === n.id) S.hover = null;
+  S.open.delete(n.id);
 }
 
-/* Overview map: one mini page per page, one bar per note, placed in its column. */
+const byPosition = (a, b) => a.page - b.page || a.rects[0][1] - b.rects[0][1] || a.rects[0][0] - b.rects[0][0];
+
+/* Rebuild lookups, counts and order after notes change, then re-place everything. */
+function refresh() {
+  S.notes.sort(byPosition);
+  S.byId = new Map(S.notes.map((n) => [n.id, n]));
+  S.byPage = new Map();
+  for (const n of S.notes) {
+    if (!S.byPage.has(n.page)) S.byPage.set(n.page, []);
+    S.byPage.get(n.page).push(n);
+  }
+  for (const lens of S.lenses.values()) {
+    lens.count = S.notes.filter((n) => n.lens === lens.id).length;
+    const count = document.querySelector(`.chip[data-lens="${lens.id}"] .chip-count`);
+    if (count) count.textContent = lens.count;
+  }
+  renderAboutLenses();
+  rail.append(...S.notes.map((n) => n.el)); // keep tab order in reading order
+  applyFilter();
+  layoutMap();
+}
+
+/* Replace all notes, e.g. with the latest version fetched in edit mode. */
+function setData(data) {
+  for (const n of S.notes) unmountNote(n);
+  S.data = data;
+  S.notes = data.notes.map((n) => ({ ...n }));
+  for (const n of S.notes) mountNote(n);
+  refresh();
+}
+
+/* Add or replace one note; returns the live note. */
+function upsertNote(plain) {
+  const old = S.byId.get(plain.id);
+  const wasOpen = old && S.open.has(old.id);
+  if (old) {
+    unmountNote(old);
+    S.notes.splice(S.notes.indexOf(old), 1);
+  }
+  const n = { ...plain };
+  S.notes.push(n);
+  mountNote(n);
+  refresh();
+  if (wasOpen) setOpen(n, true);
+  return n;
+}
+
+function removeNote(id) {
+  const n = S.byId.get(id);
+  if (!n) return;
+  unmountNote(n);
+  S.notes.splice(S.notes.indexOf(n), 1);
+  refresh();
+}
+
 function buildMap() {
-  const pages = $('#map-pages'), bars = $('#map-bars');
   for (const p of S.pages) {
     p.mini = el('div', 'map-page');
-    pages.append(p.mini);
-  }
-  for (const n of S.notes) {
-    const [x0, , x1] = n.rects[0];
-    n.mapSide = x1 - x0 > S.pageW * 0.6 ? 'wide' : (x0 + x1) / 2 < S.pageW / 2 ? 'left' : 'right';
-    const bar = el('div', 'map-bar');
-    bar.style.setProperty('--ink', S.lenses.get(n.lens).ink);
-    bar.style.left = n.mapSide === 'right' ? '54%' : '10%';
-    bar.style.right = n.mapSide === 'left' ? '54%' : '10%';
-    bars.append(bar);
-    n.bar = bar;
+    $('#map-pages').append(p.mini);
   }
 }
 
@@ -183,7 +239,11 @@ function buildAbout(about) {
     if (!p || /^\d\s/.test(p)) continue; // the lens table is rendered from data below
     box.append(el('p', null, p.replace(/\s*\n\s*/g, ' ')));
   }
+}
+
+function renderAboutLenses() {
   const list = $('#about-lenses');
+  list.replaceChildren();
   for (const lens of S.lenses.values()) {
     const li = el('li');
     const dot = el('span', 'chip-dot');
@@ -606,13 +666,7 @@ function wireEvents() {
     updateMapView();
   }).observe($('#bar'));
 
-  const sw = $('#notes-switch');
-  sw.checked = S.notesOn;
-  sw.addEventListener('change', () => {
-    S.notesOn = sw.checked;
-    if (!S.notesOn) { closeSheet(); setActive(null); }
-    applyFilter();
-  });
+  wireDownloadMenu();
 
   $('#sheet-close').addEventListener('click', closeSheet);
   $('#sheet-prev').addEventListener('click', () => step(-1));
@@ -649,13 +703,13 @@ function wireEvents() {
   about.addEventListener('click', (e) => { if (e.target === about) about.close(); });
 
   document.addEventListener('keydown', (e) => {
-    if (e.metaKey || e.ctrlKey || e.altKey || e.target.matches?.('input:not([type=checkbox]), textarea')) return;
+    if (e.metaKey || e.ctrlKey || e.altKey || e.target.matches?.('input, textarea')) return;
     const k = e.key.toLowerCase();
     if (k === 'm') return toggleTheme(); // also works with the About dialog open
     if (about.open) return;
     if (k === 'j' || (S.mobile && k === 'arrowright')) { e.preventDefault(); step(1); }
     else if (k === 'k' || (S.mobile && k === 'arrowleft')) { e.preventDefault(); step(-1); }
-    else if (k === 'n') { sw.checked = !sw.checked; sw.dispatchEvent(new Event('change')); }
+    else if (k === 'n') toggleNotes();
     else if (k === 'escape') {
       if (S.mobile) return closeSheet();
       const n = S.byId.get(S.active);
@@ -798,6 +852,38 @@ function toggleTheme() {
   prefs.set('theme', next);
 }
 
+function toggleNotes() {
+  S.notesOn = !S.notesOn;
+  if (!S.notesOn) { closeSheet(); setActive(null); }
+  applyFilter();
+}
+
+function wireDownloadMenu() {
+  const btn = $('#download-btn'), menu = $('#download-menu');
+  const items = () => [...menu.querySelectorAll('[role="menuitem"]')];
+  const open = (focusFirst) => {
+    menu.hidden = false;
+    btn.setAttribute('aria-expanded', 'true');
+    if (focusFirst) items()[0].focus();
+  };
+  const close = (refocus) => {
+    if (menu.hidden) return;
+    menu.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    if (refocus) btn.focus();
+  };
+  btn.addEventListener('click', (e) => (menu.hidden ? open(e.detail === 0) : close()));
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+  menu.addEventListener('keydown', (e) => {
+    const list = items(), i = list.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); list[(i + 1) % list.length].focus(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); list[(i - 1 + list.length) % list.length].focus(); }
+    else if (e.key === 'Escape') { e.stopPropagation(); close(true); }
+    else if (e.key === 'Tab') close();
+  });
+  document.addEventListener('pointerdown', (e) => { if (!e.target.closest('.menu-wrap')) close(); });
+}
+
 function gap() {
   return parseFloat(getComputedStyle(root).getPropertyValue('--page-gap')) || 0;
 }
@@ -808,14 +894,7 @@ async function main() {
   [S.pageW, S.pageH] = data.pageSize;
   for (const lens of data.lenses) {
     lens.ink = inkFor(lens.colour);
-    lens.count = data.notes.filter((n) => n.lens === lens.id).length;
     S.lenses.set(lens.id, lens);
-  }
-  S.notes = data.notes;
-  for (const n of S.notes) {
-    S.byId.set(n.id, n);
-    if (!S.byPage.has(n.page)) S.byPage.set(n.page, []);
-    S.byPage.get(n.page).push(n);
   }
   const saved = prefs.get('lenses', null);
   S.lensOn = new Set(Array.isArray(saved) ? saved.filter((id) => S.lenses.has(id)) : S.lenses.keys());
@@ -824,13 +903,10 @@ async function main() {
   measure();
   buildChips();
   buildPages(data.pages);
-  buildMarks();
-  buildRail();
   buildMap();
   buildAbout(data.about);
   wireEvents();
-  applyFilter();
-  layoutMap();
+  setData(data);
 
   for (const p of S.pages) io.observe(p.el);
 
@@ -840,6 +916,15 @@ async function main() {
     const n = S.byId.get(+m[1]);
     if (n && !S.lensOn.has(n.lens)) { S.lensOn.add(n.lens); applyFilter(); }
     goTo(n, 'instant');
+  }
+
+  // Author-only editing. The module is fetched only with ?edit, so readers never load it.
+  if (EDIT) {
+    import('./edit.js')
+      .then(({ initEditor }) => initEditor({
+        S, $, el, prefs, setData, upsertNote, removeNote, openNote, setOpen, setActive, applyFilter, layoutRail, byPosition,
+      }))
+      .catch((err) => console.error('Edit mode failed to load', err));
   }
 
   try {

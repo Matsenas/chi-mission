@@ -102,22 +102,21 @@ kbd {
 }
 .icon-btn:hover { border-color: var(--line-strong); }
 
-.switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 6px; user-select: none; }
-.switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.switch-track {
-  width: 34px; height: 20px; border-radius: 10px; background: var(--line-strong);
-  position: relative; transition: background 0.2s;
+.menu-wrap { position: relative; }
+.menu {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 40;
+  width: 270px; padding: 6px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: var(--shadow);
 }
-.switch-track::after {
-  content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
-  border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: transform 0.2s;
+.menu[hidden] { display: none; }
+.menu a {
+  display: flex; flex-direction: column; gap: 1px;
+  padding: 8px 10px; border-radius: 8px;
+  color: var(--text); text-decoration: none; font-size: 13px;
 }
-.switch input:checked + .switch-track { background: var(--accent); }
-.switch input:checked + .switch-track::after { transform: translateX(14px); }
-:root[data-theme="dark"] .switch input:checked + .switch-track::after { background: #161618; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .switch input:checked + .switch-track::after { background: #161618; } }
-.switch input:focus-visible + .switch-track { outline: 2px solid var(--accent); outline-offset: 2px; }
-.switch-label { font-size: 13px; font-weight: 500; }
+.menu a span { color: var(--muted); font-size: 12px; }
+.menu a:hover, .menu a:focus-visible { background: var(--hover); outline: none; }
 
 .lens-row { padding-top: 8px; }
 .chips {
@@ -216,6 +215,7 @@ body.notes-off .gutter, body.notes-off .rail { display: none; }
 .note.is-open .note-body { display: block; }
 .note-text { margin: 0; font-size: 13.5px; line-height: 1.55; }
 .note-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 11.5px; color: var(--muted); }
+.note-actions { display: flex; gap: 12px; }
 .link-btn {
   border: 0; background: none; padding: 2px 0; cursor: pointer;
   color: var(--muted); font-size: 11.5px; text-decoration: underline; text-underline-offset: 2px;
@@ -280,7 +280,6 @@ body.notes-off .gutter, body.notes-off .rail { display: none; }
   .bar-row:last-child { padding-bottom: 8px; }
   .brand strong { font-size: 13px; }
   .brand-sub { font-size: 11px; }
-  .switch-label { display: none; }
   .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -12px; padding: 0 12px; }
   .chips::-webkit-scrollbar { display: none; }
   .bar.is-tucked { transform: translateY(-100%); }
