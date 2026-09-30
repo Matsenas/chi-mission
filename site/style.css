@@ -137,7 +137,6 @@ body.notes-off .chips { opacity: 0.4; pointer-events: none; }
 .chip-count { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 11.5px; }
 .chip[aria-pressed="false"] { background: transparent; opacity: 0.55; }
 .chip[aria-pressed="false"] .chip-dot { background: transparent; }
-.chip-sep { width: 1px; align-self: stretch; margin: 4px 4px; background: var(--line); }
 .chip-all { font-weight: 500; }
 .chip-all[hidden] { display: none; }
 

@@ -54,7 +54,6 @@ function visibleNotes() { return S.notes.filter(visible); }
 function buildChips() {
   const chips = $('#chips');
   for (const lens of S.lenses.values()) {
-    if (lens.id === 8) chips.append(el('span', 'chip-sep'));
     const b = el('button', 'chip');
     b.type = 'button';
     b.dataset.lens = lens.id;
