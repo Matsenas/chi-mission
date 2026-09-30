@@ -340,9 +340,10 @@
     ]
    ],
    "passage": "different from math",
-   "text": "I wonder what'd the results would look like for maths?"
+   "text": "I wonder what'd the results of a similar study would look like for maths?"
   },
   {
+   "id": 11,
    "page": 2,
    "lens": 4,
    "rects": [
@@ -360,23 +361,34 @@
     ]
    ],
    "passage": "we perform the first randomized trial in a large undergraduate course",
-   "text": "The central claim to authority: earlier studies compared AI feedback against no feedback or against generic pre-written comments. Here the comparison is against trained human TAs doing their normal job, which is a much harder bar to clear.",
-   "id": 11
+   "text": "The central claim to authority: earlier studies compared AI feedback against no feedback or against generic pre-written comments. Here the comparison is against trained human TAs doing their normal job, which is a much harder bar to clear."
   },
   {
+   "id": 12,
    "page": 2,
    "lens": 6,
    "rects": [
     [
-     424.2,
-     391.1,
+     497.7,
+     380.1,
      558.2,
-     403
+     392.5
+    ],
+    [
+     317.9,
+     391,
+     558.2,
+     403.4
+    ],
+    [
+     317.6,
+     402,
+     356.3,
+     414.4
     ]
    ],
-   "passage": "mitigating concerns about unfiltered",
-   "text": "A practical argument for schools nervous about AI. Because a human approves every comment, the institution never has to defend an AI message it did not vet. This is the kind of reasoning that decides whether a tool gets adopted.",
-   "id": 12
+   "passage": "students receive instructor-vetted comments, mitigating concerns about unfiltered AI outputs",
+   "text": "Because a human approves every comment, the school never has to defend an AI judgement it did not vet. It's a practical argument for institutions dealing with sensitive processes and can help with the adoption of the tooling."
   },
   {
    "id": 135,
@@ -419,6 +431,39 @@
    "passage": "the essay evaluation rubrics (Table 1),",
    "text": "A rubric is the checklist an instructor grades against. Here each rubric item is one specific idea the student must demonstrate, e.g. 'identify that almond milk and oat milk are substitutes in consumption'.",
    "id": 13
+  },
+  {
+   "id": 139,
+   "page": 2,
+   "lens": 3,
+   "rects": [
+    [
+     317.9,
+     478.6,
+     558.2,
+     491
+    ],
+    [
+     317.9,
+     489.6,
+     559.7,
+     502
+    ],
+    [
+     317.9,
+     500.5,
+     558.4,
+     512.9
+    ],
+    [
+     317.9,
+     511.4,
+     464.9,
+     523.9
+    ]
+   ],
+   "passage": "the system generates a feedback message through a pipeline that mirrors a human evaluator’s process: (1) scanning the essay to identify relevant sentences; (2) judging whether the rubric is satisfied or missing; (3) drafting a feedback message",
+   "text": "The AI workflow is set up similar to the TAs, assessing each rubric item against the written work and writing an appropriate feedback item as output."
   },
   {
    "page": 2,
@@ -2398,5 +2443,5 @@
    "id": 131
   }
  ],
- "nextId": 139
+ "nextId": 140
 }
