@@ -4,6 +4,7 @@ A reader's edition of *AI-Mediated Feedback Improves Student Revisions: A Random
 
 - **Left:** the original PDF, rendered with pdf.js. Text stays selectable.
 - **Right:** margin notes aligned to their passages. Tap a note to expand it.
+- **Overview map** (desktop, left of the pages): a mini column of the whole paper, with one coloured bar per note placed in its page and column, and a grey box for what's on screen. Click or drag to move, hover a bar to preview its note, click a bar to open it.
 - **Lens chips** filter the notes. Double-click (or long-press on touch) shows one lens only.
 - **Notes switch** (or `N`) hides every note for a clean read.
 - **Mobile:** dots in the page margin open notes in a bottom sheet with previous/next.

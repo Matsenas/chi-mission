@@ -11,7 +11,7 @@ const el = (tag, cls, text) => {
 };
 const SVG = 'http://www.w3.org/2000/svg';
 const MOBILE = matchMedia('(max-width: 999px)');
-const RAIL = 300, GUTTER = 36, NOTE_H = 30, OPEN_H = 34, NOTE_GAP = 4;
+const RAIL = 300, GUTTER = 36, MAP = 60, NOTE_H = 30, OPEN_H = 34, NOTE_GAP = 4;
 
 // Per-viewer preferences only; the page works without them.
 const prefs = {
@@ -31,7 +31,7 @@ const S = {
   pdf: null, pages: [],
 };
 
-const reader = $('#reader'), doc = $('#doc'), rail = $('#rail'), links = $('#links');
+const reader = $('#reader'), doc = $('#doc'), rail = $('#rail'), links = $('#links'), map = $('#map');
 const root = document.documentElement;
 
 /* ---------------- Colour: pastel highlight → readable ink ---------------- */
@@ -157,6 +157,25 @@ function buildRail() {
   links.classList.add('links');
 }
 
+/* Overview map: one mini page per page, one bar per note, placed in its column. */
+function buildMap() {
+  const pages = $('#map-pages'), bars = $('#map-bars');
+  for (const p of S.pages) {
+    p.mini = el('div', 'map-page');
+    pages.append(p.mini);
+  }
+  for (const n of S.notes) {
+    const [x0, , x1] = n.rects[0];
+    n.mapSide = x1 - x0 > S.pageW * 0.6 ? 'wide' : (x0 + x1) / 2 < S.pageW / 2 ? 'left' : 'right';
+    const bar = el('div', 'map-bar');
+    bar.style.setProperty('--ink', S.lenses.get(n.lens).ink);
+    bar.style.left = n.mapSide === 'right' ? '54%' : '10%';
+    bar.style.right = n.mapSide === 'left' ? '54%' : '10%';
+    bars.append(bar);
+    n.bar = bar;
+  }
+}
+
 function buildAbout(about) {
   const box = $('#about-text');
   for (const para of about.split(/\n\s*\n/)) {
@@ -179,7 +198,7 @@ function buildAbout(about) {
 function measure() {
   const W = root.clientWidth;
   S.mobile = MOBILE.matches;
-  S.pw = S.mobile ? W - 16 : Math.max(480, Math.min(880, W - 48 - RAIL - GUTTER));
+  S.pw = S.mobile ? W - 16 : Math.max(480, Math.min(880, W - 48 - RAIL - GUTTER - MAP));
   S.scale = S.pw / S.pageW;
   S.ph = Math.round(S.pageH * S.scale);
   root.style.setProperty('--pw', S.pw + 'px');
@@ -213,6 +232,35 @@ function layoutRail() {
   rail.style.minHeight = Math.max(0, bottom) + 'px';
   // Animate note movement only after the first placement.
   if (!rail.classList.contains('animate')) requestAnimationFrame(() => requestAnimationFrame(() => rail.classList.add('animate')));
+}
+
+/* Map positions are fractions of the whole document, so they only change on resize. */
+const docHeight = () => pageTop(S.pages.length) + S.ph;
+
+function layoutMap() {
+  if (S.mobile) return;
+  const H = docHeight();
+  for (const p of S.pages) {
+    p.mini.style.top = (pageTop(p.n) / H) * 100 + '%';
+    p.mini.style.height = (S.ph / H) * 100 + '%';
+  }
+  for (const n of S.notes) {
+    n.mapY = anchorMid(n) / H;
+    n.bar.style.top = n.mapY * 100 + '%';
+  }
+  updateMapView();
+}
+
+/* The grey box: the part of the paper currently on screen. */
+function updateMapView() {
+  if (S.mobile) return;
+  const H = docHeight(), mapH = map.clientHeight, barH = $('#bar').offsetHeight;
+  const docTop = doc.getBoundingClientRect().top; // viewport coordinates
+  const from = Math.max(0, (barH - docTop) / H), to = Math.min(1, (innerHeight - docTop) / H);
+  const view = $('#map-view');
+  view.style.top = from * mapH + 'px';
+  view.style.height = Math.max(6, (to - from) * mapH) + 'px';
+  S.view = { from, to };
 }
 
 /* Mobile: dots in the page margin beside each passage; nearby dots merge. */
@@ -331,6 +379,7 @@ function setClass(n, cls, on) {
   for (const m of n.marks) m.classList.toggle(cls, on);
   n.path.classList.toggle(cls, on);
   n.dot.classList.toggle(cls, on);
+  n.bar.classList.toggle(cls, on);
 }
 
 function setHover(id) {
@@ -364,6 +413,7 @@ function applyFilter() {
     for (const m of n.marks) m.classList.toggle('is-off', off);
     n.path.classList.toggle('is-off', off);
     n.dot.classList.toggle('is-off', off);
+    n.bar.classList.toggle('is-off', off);
   }
   for (const b of document.querySelectorAll('.chip[data-lens]')) b.setAttribute('aria-pressed', S.lensOn.has(+b.dataset.lens));
   $('.chip-all').hidden = S.lensOn.size === S.lenses.size;
@@ -549,6 +599,13 @@ function wireEvents() {
     if (note) setHover(+note.dataset.id);
   });
 
+  wireMap();
+  // The header's height changes when the chips wrap; the sticky map is sized from it.
+  new ResizeObserver(() => {
+    root.style.setProperty('--bar-h', $('#bar').offsetHeight + 'px');
+    updateMapView();
+  }).observe($('#bar'));
+
   const sw = $('#notes-switch');
   sw.checked = S.notesOn;
   sw.addEventListener('change', () => {
@@ -610,7 +667,7 @@ function wireEvents() {
   addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      if (root.clientWidth === lastW && MOBILE.matches === S.mobile) return; // mobile URL-bar resize
+      if (root.clientWidth === lastW && MOBILE.matches === S.mobile) return updateMapView(); // height-only resize
       lastW = root.clientWidth;
       const docTop = doc.getBoundingClientRect().top + scrollY;
       const before = (scrollY - docTop) / (S.ph + gap());
@@ -619,14 +676,17 @@ function wireEvents() {
       if (wasMobile !== S.mobile) { closeSheet(); }
       scrollTo({ top: docTop + before * (S.ph + gap()) });
       layoutRail();
+      layoutMap();
       buildMarkers();
       pump();
     }, 120);
   });
 
   // Mobile: tuck the bar away while reading down, bring it back on scroll up.
-  let lastY = scrollY;
+  let lastY = scrollY, mapRaf = 0;
   addEventListener('scroll', () => {
+    cancelAnimationFrame(mapRaf);
+    mapRaf = requestAnimationFrame(updateMapView);
     const y = scrollY, bar = $('#bar');
     if (S.mobile && $('#sheet').hidden) {
       if (y > lastY + 6 && y > 120) bar.classList.add('is-tucked');
@@ -639,6 +699,91 @@ function wireEvents() {
     const m = location.hash.match(/^#note-(\d+)$/);
     if (m) goTo(S.byId.get(+m[1]));
   });
+}
+
+function wireMap() {
+  const tip = $('#map-tip');
+  const frac = (e) => Math.min(1, Math.max(0, (e.clientY - map.getBoundingClientRect().top) / map.clientHeight));
+
+  // Nearest visible note bar within a few pixels of the pointer.
+  const barAt = (e) => {
+    if (!S.notesOn) return null;
+    const r = map.getBoundingClientRect(), y = e.clientY - r.top, rightSide = e.clientX - r.left > r.width / 2;
+    let best = null, bestD = 4;
+    for (const n of S.notes) {
+      if (!visible(n)) continue;
+      const otherSide = n.mapSide !== 'wide' && (n.mapSide === 'right') !== rightSide;
+      const d = Math.abs(n.mapY * r.height - y) + (otherSide ? 1.5 : 0); // prefer the column under the pointer
+      if (d < bestD) { best = n; bestD = d; }
+    }
+    return best;
+  };
+
+  // Scroll so that fraction f of the paper sits at the top of the visible area.
+  const scrollToFrac = (f, behavior) => {
+    const docTop = doc.getBoundingClientRect().top + scrollY;
+    scrollTo({ top: docTop + f * docHeight() - $('#bar').offsetHeight, behavior });
+  };
+
+  const showTip = (e, n) => {
+    const r = map.getBoundingClientRect();
+    tip.replaceChildren();
+    const head = el('div', 'tip-head');
+    if (n) {
+      const lens = S.lenses.get(n.lens), dot = el('span', 'chip-dot');
+      dot.style.setProperty('--c', lens.colour);
+      dot.style.setProperty('--ink', lens.ink);
+      head.append(dot, `${lens.name} · p. ${n.page}`);
+      tip.append(head, el('div', 'tip-text', n.text));
+    } else {
+      const y = frac(e) * docHeight();
+      const page = Math.min(S.pages.length, Math.max(1, S.pages.findLastIndex((p) => pageTop(p.n) <= y) + 1));
+      const count = (S.byPage.get(page) || []).filter(visible).length;
+      head.append(`Page ${page}` + (S.notesOn ? ` · ${count} note${count === 1 ? '' : 's'}` : ''));
+      tip.append(head);
+    }
+    tip.style.left = r.right + 10 + 'px';
+    tip.style.top = Math.min(innerHeight - 30, Math.max(30, e.clientY)) + 'px';
+    tip.hidden = false;
+  };
+
+  let drag = null;
+  map.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    map.setPointerCapture(e.pointerId);
+    const f = frac(e), { from, to } = S.view;
+    // Grab the grey box where it was pressed; elsewhere, centre it on the pointer.
+    const offset = f >= from && f <= to ? f - from : (to - from) / 2;
+    drag = { startY: e.clientY, offset, moved: false, bar: barAt(e) };
+    map.classList.add('is-dragging');
+  });
+  map.addEventListener('pointermove', (e) => {
+    if (drag) {
+      if (Math.abs(e.clientY - drag.startY) > 3) drag.moved = true;
+      if (drag.moved) scrollToFrac(frac(e) - drag.offset, 'instant');
+    }
+    const n = drag?.moved ? null : barAt(e);
+    setHover(n ? n.id : null);
+    showTip(e, n);
+  });
+  const end = (e) => {
+    if (!drag) return;
+    const { moved, bar, offset } = drag;
+    drag = null;
+    map.classList.remove('is-dragging');
+    if (moved || e.type === 'pointercancel') return;
+    if (bar) goTo(bar);
+    else scrollToFrac(frac(e) - offset, 'smooth');
+  };
+  map.addEventListener('pointerup', end);
+  map.addEventListener('pointercancel', end);
+  map.addEventListener('pointerleave', () => {
+    if (drag) return;
+    tip.hidden = true;
+    setHover(null);
+  });
+  map.addEventListener('wheel', () => { tip.hidden = true; }, { passive: true });
 }
 
 function gap() {
@@ -669,9 +814,11 @@ async function main() {
   buildPages(data.pages);
   buildMarks();
   buildRail();
+  buildMap();
   buildAbout(data.about);
   wireEvents();
   applyFilter();
+  layoutMap();
 
   for (const p of S.pages) io.observe(p.el);
 
