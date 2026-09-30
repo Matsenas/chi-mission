@@ -916,19 +916,19 @@
    "text": "When TAs thought aloud, several discovered errors they had missed on their first pass, and worried about fairness. This is the human weakness the AI is meant to cover."
   },
   {
+   "id": 36,
    "page": 5,
    "lens": 1,
    "rects": [
     [
-     362.3,
+     399.9,
      318,
      451.1,
-     330
+     330.4
     ]
    ],
-   "passage": "may have hallucinations",
-   "text": "Hallucination: when an AI states something false with complete confidence. The word is standard in the field but misleading, since the model is not malfunctioning, just predicting plausible text.",
-   "id": 36
+   "passage": "hallucinations",
+   "text": "Hallucination: when an AI states something false with complete confidence. The word is standard in the field but misleading, since the model is not malfunctioning, just predicting plausible text."
   },
   {
    "page": 5,
@@ -946,6 +946,7 @@
    "id": 37
   },
   {
+   "id": 38,
    "page": 5,
    "lens": 1,
    "rects": [
@@ -963,29 +964,22 @@
     ]
    ],
    "passage": "emphasizing a verification-first approach",
-   "text": "The habit TAs said they wanted: form your own judgment first, then look at what the AI said. The concern is that seeing the AI's answer first would anchor their thinking.",
-   "id": 38
+   "text": "The habit TAs said they wanted: form own judgment first, then look at what the AI said. The concern is that seeing the AI's answer first would anchor their thinking."
   },
   {
+   "id": 39,
    "page": 5,
    "lens": 1,
    "rects": [
     [
-     523.6,
-     438.6,
-     560.4,
-     450.5
-    ],
-    [
-     318,
-     449.5,
-     447.3,
-     461.5
+     317.9,
+     449.4,
+     369.5,
+     461.8
     ]
    ],
-   "passage": "could add cognitive load rather than reduce it",
-   "text": "Cognitive load is the amount of mental effort a task demands. A real risk here: reading and checking AI suggestions is itself work, so unhelpful assistance can leave someone worse off than no assistance.",
-   "id": 39
+   "passage": "cognitive load",
+   "text": "Cognitive load is the amount of mental effort a task demands. A real risk here: reading and checking AI suggestions is itself work, so unhelpful assistance can leave someone worse off than no assistance."
   },
   {
    "page": 5,
@@ -1014,19 +1008,13 @@
    "lens": 3,
    "rects": [
     [
-     320.6,
-     533.4,
-     558.2,
-     545.8
-    ],
-    [
-     342.3,
-     544.3,
-     401.2,
-     556.7
+     347.1,
+     502.5,
+     419.1,
+     514.9
     ]
    ],
-   "passage": "DG1 Facilitate feedback provision while adding minimal cognitive load.",
+   "passage": "design goals (DGs)",
    "text": "Design goals are the requirements the team wrote down before building, each traceable to something observed in the formative study. DG3 in particular, making AI mistakes easy to spot and fix, is what the conclusion later credits for the result."
   },
   {
