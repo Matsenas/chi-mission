@@ -1,0 +1,2201 @@
+{
+ "title": "AI-Mediated Feedback Improves Student Revisions: A Randomized Trial with FeedbackWriter in a Large Undergraduate Course",
+ "pdf": "paper.pdf",
+ "pageSize": [
+  612.0,
+  792.0
+ ],
+ "pages": 26,
+ "about": "Second-pass annotation plan, modelled on the AAAS Science in the Classroom Learning Lens.\n\n  1 Glossary              - plain definitions of AI, education and statistics terms\n  2 Previous work         - what an earlier cited study actually found\n  3 What they built       - how the FeedbackWriter system works and why\n  4 What they did         - the study design, measures and data\n  5 Results & conclusions - findings restated in plain English\n  6 News & policy links   - student privacy, AI in classrooms, grading workload\n  7 Reference notes       - what a specific entry in the reference list contributed\n  8 My questions          - my own questions for the researchers\n\nSets 1-7 are explanatory, written for a reader who is not an HCI researcher: an instructor,\nan instructional designer, an administrator or a student. They define jargon, say what cited\nwork found, explain what was built and done, translate the statistics, and connect the work\nto real-world debates. Following the AAAS model, they do not criticise.\n\nSet 8 is critical rather than explanatory, and is coloured saturated orange so it never\nblends into sets 1-7. Every note in it begins MY QUESTION.\n\nAdaptation note: the AAAS lens has a 'Connect to learning standards' layer for K-12\ncurriculum standards. It does not apply to a graduate HCI paper, so it is omitted.\n'Author's experiments' is split into 'What they built' and 'What they did', because in\nHCI the system is itself a contribution and has no analogue in a lab-science paper.",
+ "lenses": [
+  {
+   "id": 1,
+   "name": "Glossary",
+   "colour": "#ffed73",
+   "description": "plain definitions of AI, education and statistics terms"
+  },
+  {
+   "id": 2,
+   "name": "Previous work",
+   "colour": "#b8eba8",
+   "description": "what an earlier cited study actually found"
+  },
+  {
+   "id": 3,
+   "name": "What they built",
+   "colour": "#a8d9f5",
+   "description": "how the FeedbackWriter system works and why"
+  },
+  {
+   "id": 4,
+   "name": "What they did",
+   "colour": "#bdc7f5",
+   "description": "the study design, measures and data"
+  },
+  {
+   "id": 5,
+   "name": "Results & conclusions",
+   "colour": "#d9bdf2",
+   "description": "findings restated in plain English"
+  },
+  {
+   "id": 6,
+   "name": "News & policy links",
+   "colour": "#99ebe3",
+   "description": "student privacy, AI in classrooms, grading workload"
+  },
+  {
+   "id": 7,
+   "name": "Reference notes",
+   "colour": "#fac2bd",
+   "description": "what a specific entry in the reference list contributed"
+  },
+  {
+   "id": 8,
+   "name": "My questions",
+   "colour": "#ff9e33",
+   "description": "my own questions for the researchers"
+  }
+ ],
+ "notes": [
+  {
+   "page": 1,
+   "lens": 5,
+   "rects": [
+    [
+     332.8,
+     604.9,
+     558.2,
+     616.9
+    ]
+   ],
+   "passage": "roughly equivalent to moving a student from the 50th to",
+   "text": "A way to picture the size of the improvement. If a student was exactly average in the class (better than 50% of classmates), the same student would now be better than about 70% of them.",
+   "id": 1
+  },
+  {
+   "page": 1,
+   "lens": 1,
+   "rects": [
+    [
+     475.9,
+     615.8,
+     558.4,
+     627.8
+    ]
+   ],
+   "passage": "such as actionability",
+   "text": "Actionability: the feedback tells the student something concrete they can do next, rather than just naming what is wrong. 'Consider how the tax affects both sides of the market' is actionable; 'incomplete analysis' is not.",
+   "id": 2
+  },
+  {
+   "page": 1,
+   "lens": 1,
+   "rects": [
+    [
+     71.1,
+     626.8,
+     215.3,
+     638.8
+    ]
+   ],
+   "passage": "promotion of independent learning.",
+   "text": "Feedback that nudges a student toward the answer without handing it over, usually by asking a question. The idea is that working it out yourself is what produces the learning.",
+   "id": 3
+  },
+  {
+   "page": 1,
+   "lens": 2,
+   "rects": [
+    [
+     386.2,
+     668.6,
+     558.2,
+     680.5
+    ]
+   ],
+   "passage": "little is known about how students respond to",
+   "text": "Researchers have built many tools that use AI to comment on student writing. Almost none of them checked whether students' work actually improved afterwards. That is the hole this study sets out to fill.",
+   "id": 4
+  },
+  {
+   "page": 2,
+   "lens": 1,
+   "rects": [
+    [
+     112.1,
+     84.2,
+     216.5,
+     96.2
+    ]
+   ],
+   "passage": "randomized controlled trial",
+   "text": "The strongest everyday test of whether something works. People are sorted into groups by chance, so the groups start out alike and any later difference can be credited to the treatment rather than to who ended up where. Common in medicine; still rare in studies of classroom software.",
+   "id": 5
+  },
+  {
+   "page": 2,
+   "lens": 1,
+   "rects": [
+    [
+     263.3,
+     106.1,
+     296.2,
+     118.1
+    ],
+    [
+     53.8,
+     117.1,
+     109.2,
+     129.0
+    ]
+   ],
+   "passage": "teaching assistants (TAs)",
+   "text": "Graduate or advanced undergraduate students hired to help run a large course. Here, each of the 11 TAs led one discussion section and graded that section's essays.",
+   "id": 6
+  },
+  {
+   "page": 2,
+   "lens": 3,
+   "rects": [
+    [
+     114.7,
+     128.0,
+     294.0,
+     140.0
+    ]
+   ],
+   "passage": "TAs have the full capacity to adopt, edit, or dismiss",
+   "text": "The single most important design decision in the paper. The AI never speaks to students directly. It drafts; a human decides. The authors call this 'AI-mediated' to distinguish it from AI that answers students itself.",
+   "id": 7
+  },
+  {
+   "page": 2,
+   "lens": 1,
+   "rects": [
+    [
+     382.5,
+     150.0,
+     558.2,
+     161.9
+    ]
+   ],
+   "passage": "we explore AI-mediated feedback, where human",
+   "text": "AI-mediated feedback: the AI writes a draft comment, a human expert reviews it and decides whether to use it. Contrast with AI-generated feedback, which goes straight to the student.",
+   "id": 8
+  },
+  {
+   "page": 2,
+   "lens": 1,
+   "rects": [
+    [
+     439.5,
+     171.9,
+     533.6,
+     183.8
+    ]
+   ],
+   "passage": "knowledge-intensive essays",
+   "text": "Essays graded on whether the student understands the subject matter, not on style or persuasiveness. An economics essay that reads beautifully but misuses 'demand' fails on these terms.",
+   "id": 9
+  },
+  {
+   "page": 2,
+   "lens": 4,
+   "rects": [
+    [
+     53.8,
+     182.8,
+     238.1,
+     194.8
+    ]
+   ],
+   "passage": "In total, 1,366 essays were graded using the system.",
+   "text": "The scale of the deployment: 354 students, two assignments each, a first draft and a final draft for each assignment, graded across a full semester.",
+   "id": 10
+  },
+  {
+   "page": 2,
+   "lens": 4,
+   "rects": [
+    [
+     513.9,
+     292.4,
+     560.5,
+     304.4
+    ],
+    [
+     318.0,
+     303.4,
+     527.5,
+     315.3
+    ]
+   ],
+   "passage": "we perform the first randomized trial in a large undergraduate course",
+   "text": "The central claim to authority: earlier studies compared AI feedback against no feedback or against generic pre-written comments. Here the comparison is against trained human TAs doing their normal job, which is a much harder bar to clear.",
+   "id": 11
+  },
+  {
+   "page": 2,
+   "lens": 6,
+   "rects": [
+    [
+     424.2,
+     391.1,
+     558.2,
+     403.0
+    ]
+   ],
+   "passage": "mitigating concerns about unfiltered",
+   "text": "A practical argument for schools nervous about AI. Because a human approves every comment, the institution never has to defend an AI message it did not vet. This is the kind of reasoning that decides whether a tool gets adopted.",
+   "id": 12
+  },
+  {
+   "page": 2,
+   "lens": 1,
+   "rects": [
+    [
+     419.2,
+     456.8,
+     557.2,
+     468.8
+    ]
+   ],
+   "passage": "the essay evaluation rubrics (Table 1),",
+   "text": "A rubric is the checklist an instructor grades against. Here each rubric item is one specific idea the student must demonstrate, e.g. 'identify that almond milk and oat milk are substitutes in consumption'.",
+   "id": 13
+  },
+  {
+   "page": 2,
+   "lens": 1,
+   "rects": [
+    [
+     53.8,
+     478.7,
+     162.9,
+     490.7
+    ]
+   ],
+   "passage": "large language models (LLMs)",
+   "text": "The technology behind ChatGPT. A model trained on enormous amounts of text that predicts what words should come next, which lets it write fluent prose, answer questions and follow instructions.",
+   "id": 14
+  },
+  {
+   "page": 2,
+   "lens": 3,
+   "rects": [
+    [
+     342.4,
+     566.4,
+     421.6,
+     578.4
+    ]
+   ],
+   "passage": "Sentence highlighting:",
+   "text": "For each rubric item, the system marks the sentences in the essay it thinks are relevant, so the TA can see the evidence behind the AI's judgment instead of taking it on faith.",
+   "id": 15
+  },
+  {
+   "page": 2,
+   "lens": 3,
+   "rects": [
+    [
+     342.4,
+     588.3,
+     404.7,
+     600.3
+    ]
+   ],
+   "passage": "Rubric judgment:",
+   "text": "A checkbox showing whether the AI thinks the student met this criterion, colour-coded, and flippable by the TA with one click.",
+   "id": 16
+  },
+  {
+   "page": 2,
+   "lens": 2,
+   "rects": [
+    [
+     143.4,
+     610.2,
+     294.0,
+     622.2
+    ]
+   ],
+   "passage": "50% of math-tutoring dialogues contain",
+   "text": "A cited study found that in half of the AI tutoring conversations it examined, the AI made a mistake somewhere. This is the evidence base for not letting AI talk to students unsupervised.",
+   "id": 17
+  },
+  {
+   "page": 2,
+   "lens": 2,
+   "rects": [
+    [
+     107.2,
+     621.2,
+     296.6,
+     633.2
+    ],
+    [
+     53.8,
+     634.8,
+     86.9,
+     643.9
+    ]
+   ],
+   "passage": "AI-generated next-step actions reach only 52%-70% accuracy",
+   "text": "In a benchmark called TutorGym, when AI was asked what a tutor should do next, it got it right only about half to two-thirds of the time.",
+   "id": 18
+  },
+  {
+   "page": 2,
+   "lens": 2,
+   "rects": [
+    [
+     181.3,
+     632.2,
+     294.0,
+     644.1
+    ]
+   ],
+   "passage": "30% of ChatGPT algebra hints",
+   "text": "Nearly a third of hints ChatGPT produced for algebra problems were judged too poor to give to a student.",
+   "id": 19
+  },
+  {
+   "page": 2,
+   "lens": 3,
+   "rects": [
+    [
+     348.0,
+     654.1,
+     557.8,
+     666.0
+    ]
+   ],
+   "passage": "final feedback boxes and scores are deliberately left empty,",
+   "text": "A deliberate friction. Nothing is pre-filled, so the TA has to actively choose to insert each comment. The designers were guarding against rubber-stamping.",
+   "id": 20
+  },
+  {
+   "page": 2,
+   "lens": 2,
+   "rects": [
+    [
+     102.4,
+     697.9,
+     255.0,
+     709.9
+    ]
+   ],
+   "passage": "Tutor Copilot [111] shows exciting results",
+   "text": "The closest predecessor to this work. When human tutors were shown AI suggestions during live tutoring sessions, their students learned more. This study asks whether the same holds for written feedback on essays.",
+   "id": 21
+  },
+  {
+   "page": 3,
+   "lens": 5,
+   "rects": [
+    [
+     342.1,
+     420.5,
+     542.3,
+     432.5
+    ]
+   ],
+   "passage": "TAs found the AI suggestions to be generally accurate",
+   "text": "Finding 4. The people using the tool trusted it, mostly because it caught student errors they had missed and because fixing its mistakes was cheap.",
+   "id": 22
+  },
+  {
+   "page": 3,
+   "lens": 4,
+   "rects": [
+    [
+     155.4,
+     530.1,
+     294.0,
+     542.1
+    ]
+   ],
+   "passage": "The conditions were reversed for the",
+   "text": "Called counterbalancing. Every TA and every student experienced both versions, just in opposite orders. This removes the worry that one group simply had better TAs or an easier assignment.",
+   "id": 23
+  },
+  {
+   "page": 3,
+   "lens": 5,
+   "rects": [
+    [
+     118.9,
+     617.8,
+     294.0,
+     629.8
+    ]
+   ],
+   "passage": "The effect is larger when the TAs adopted more",
+   "text": "Finding 1, and the headline. Note the second half of the sentence: the benefit grew with how much AI-drafted feedback the TA actually used. See my question on page 17 about how firm that part is.",
+   "id": 24
+  },
+  {
+   "page": 3,
+   "lens": 1,
+   "rects": [
+    [
+     317.5,
+     621.2,
+     558.2,
+     633.2
+    ]
+   ],
+   "passage": "Writing-to-Learn (WTL) is a widely adopted instructional approach",
+   "text": "Writing-to-Learn: assigning writing not to teach writing, but to force students to think through subject matter. The essay is a vehicle for learning economics, not an end in itself.",
+   "id": 25
+  },
+  {
+   "page": 3,
+   "lens": 5,
+   "rects": [
+    [
+     224.0,
+     661.6,
+     292.5,
+     673.6
+    ]
+   ],
+   "passage": "there is no statisti­",
+   "text": "Finding 2, and the one the abstract leaves out. Students wrote better revisions, but scored no better on the quiz afterwards. Better work did not translate into measurably more learning.",
+   "id": 26
+  },
+  {
+   "page": 4,
+   "lens": 2,
+   "rects": [
+    [
+     500.2,
+     106.1,
+     560.5,
+     118.1
+    ],
+    [
+     318.0,
+     119.8,
+     347.2,
+     128.8
+    ]
+   ],
+   "passage": "Human experts remains",
+   "text": "The broader shift this paper sits inside: across education technology, researchers have moved from trying to automate the teacher to trying to assist the teacher, keeping a human responsible for what reaches students.",
+   "id": 27
+  },
+  {
+   "page": 4,
+   "lens": 2,
+   "rects": [
+    [
+     100.8,
+     341.7,
+     294.3,
+     353.7
+    ]
+   ],
+   "passage": "students rejected more than 40% of the AI feedback",
+   "text": "A telling earlier result. When students could not tell which comments came from a human, they dismissed over 40% of the AI ones but fewer than 20% of the instructors'. Something about AI feedback reads as less useful even when its source is hidden.",
+   "id": 28
+  },
+  {
+   "page": 4,
+   "lens": 1,
+   "rects": [
+    [
+     433.7,
+     423.9,
+     558.2,
+     435.9
+    ]
+   ],
+   "passage": "the INSPIRE model characterizes",
+   "text": "INSPIRE is a checklist of what good human tutors do: be intelligent, nurturant, Socratic, progressive, indirect, reflective and encouraging. The authors borrow four of these ideas as their quality measures.",
+   "id": 29
+  },
+  {
+   "page": 4,
+   "lens": 2,
+   "rects": [
+    [
+     183.8,
+     440.4,
+     296.2,
+     452.3
+    ],
+    [
+     53.8,
+     451.3,
+     171.2,
+     463.3
+    ]
+   ],
+   "passage": "tend to prioritize grammar and syntax mistakes, whereas expert",
+   "text": "A known failure pattern: AI reaches for surface errors like grammar, while expert teachers go after misunderstandings. That is precisely the gap a knowledge-intensive essay exposes.",
+   "id": 30
+  },
+  {
+   "page": 4,
+   "lens": 1,
+   "rects": [
+    [
+     349.3,
+     478.7,
+     534.9,
+     490.7
+    ]
+   ],
+   "passage": "practices like indirect hints and Socratic questioning",
+   "text": "Socratic questioning: leading someone to an answer by asking rather than telling. 'Who bears the burden of this tax?' instead of 'you forgot the producers.'",
+   "id": 31
+  },
+  {
+   "page": 4,
+   "lens": 1,
+   "rects": [
+    [
+     361.3,
+     500.6,
+     561.5,
+     512.6
+    ],
+    [
+     318.0,
+     511.6,
+     386.5,
+     523.6
+    ]
+   ],
+   "passage": "feedback was categorized by type (summary, praise, problem, solution)",
+   "text": "The four-way scheme used throughout this paper. Summary restates what the student wrote; praise says what worked; problem names what is wrong; solution says what to do. Problems and solutions are the types that actually drive revision.",
+   "id": 32
+  },
+  {
+   "page": 5,
+   "lens": 1,
+   "rects": [
+    [
+     53.4,
+     97.9,
+     176.3,
+     109.9
+    ]
+   ],
+   "passage": "We conducted a formative study",
+   "text": "A formative study is preliminary fieldwork done before building anything, to learn how people currently work. Designing the tool first and asking questions later is how you end up with software nobody uses.",
+   "id": 33
+  },
+  {
+   "page": 5,
+   "lens": 1,
+   "rects": [
+    [
+     376.4,
+     173.7,
+     451.5,
+     185.7
+    ]
+   ],
+   "passage": "think-aloud sessions,",
+   "text": "A standard HCI method: the participant narrates their thinking out loud while working, so the researcher can observe reasoning that would otherwise be invisible.",
+   "id": 34
+  },
+  {
+   "page": 5,
+   "lens": 4,
+   "rects": [
+    [
+     318.0,
+     184.7,
+     455.4,
+     196.6
+    ]
+   ],
+   "passage": "they had overlooked student mistakes",
+   "text": "A finding that shapes everything after it. When TAs thought aloud, several discovered errors they had missed on their first pass, and worried about fairness. This is the human weakness the AI is meant to cover.",
+   "id": 35
+  },
+  {
+   "page": 5,
+   "lens": 1,
+   "rects": [
+    [
+     362.3,
+     318.0,
+     451.1,
+     330.0
+    ]
+   ],
+   "passage": "may have hallucinations",
+   "text": "Hallucination: when an AI states something false with complete confidence. The word is standard in the field but misleading, since the model is not malfunctioning, just predicting plausible text.",
+   "id": 36
+  },
+  {
+   "page": 5,
+   "lens": 1,
+   "rects": [
+    [
+     53.8,
+     364.0,
+     114.5,
+     375.9
+    ]
+   ],
+   "passage": "affinity diagrams",
+   "text": "A method for finding themes in interview data. Researchers write each observation on its own note, then repeatedly group similar notes until categories emerge from the material rather than being imposed on it.",
+   "id": 37
+  },
+  {
+   "page": 5,
+   "lens": 1,
+   "rects": [
+    [
+     504.4,
+     394.7,
+     560.5,
+     406.7
+    ],
+    [
+     317.7,
+     405.7,
+     415.9,
+     417.6
+    ]
+   ],
+   "passage": "emphasizing a verification-first approach",
+   "text": "The habit TAs said they wanted: form your own judgment first, then look at what the AI said. The concern is that seeing the AI's answer first would anchor their thinking.",
+   "id": 38
+  },
+  {
+   "page": 5,
+   "lens": 1,
+   "rects": [
+    [
+     523.6,
+     438.6,
+     560.4,
+     450.5
+    ],
+    [
+     318.0,
+     449.5,
+     447.3,
+     461.5
+    ]
+   ],
+   "passage": "could add cognitive load rather than reduce it",
+   "text": "Cognitive load is the amount of mental effort a task demands. A real risk here: reading and checking AI suggestions is itself work, so unhelpful assistance can leave someone worse off than no assistance.",
+   "id": 39
+  },
+  {
+   "page": 5,
+   "lens": 4,
+   "rects": [
+    [
+     90.2,
+     498.5,
+     296.2,
+     510.5
+    ],
+    [
+     53.8,
+     512.3,
+     68.5,
+     521.1
+    ]
+   ],
+   "passage": "This process is time-consuming, especially the searching step.",
+   "text": "The bottleneck the whole system is designed around. TAs said the slow part was not judging the essay, it was hunting through it for the sentence relevant to each rubric item.",
+   "id": 40
+  },
+  {
+   "page": 5,
+   "lens": 3,
+   "rects": [
+    [
+     320.6,
+     533.5,
+     558.2,
+     545.5
+    ]
+   ],
+   "passage": "DG1 Facilitate feedback provision while adding minimal",
+   "text": "Design goals are the requirements the team wrote down before building, each traceable to something observed in the formative study. DG3 in particular, making AI mistakes easy to spot and fix, is what the conclusion later credits for the result.",
+   "id": 41
+  },
+  {
+   "page": 7,
+   "lens": 1,
+   "rects": [
+    [
+     188.2,
+     84.2,
+     296.2,
+     96.2
+    ],
+    [
+     53.8,
+     95.2,
+     192.5,
+     107.1
+    ]
+   ],
+   "passage": "All subtasks are implemented as GPT-4o calls with temperature 0.05.",
+   "text": "GPT-4o was OpenAI's leading model when this work was done. Temperature controls randomness: near 0 the model gives its most predictable answer every time, which is what you want for grading, where the same essay should get the same judgment twice.",
+   "id": 42
+  },
+  {
+   "page": 7,
+   "lens": 1,
+   "rects": [
+    [
+     207.8,
+     139.0,
+     296.3,
+     151.0
+    ],
+    [
+     53.8,
+     150.0,
+     97.3,
+     161.9
+    ]
+   ],
+   "passage": "following the extractive QA practice",
+   "text": "Extractive means the model must point at actual sentences in the essay rather than write its own summary. It keeps the AI tethered to what the student really wrote.",
+   "id": 43
+  },
+  {
+   "page": 7,
+   "lens": 3,
+   "rects": [
+    [
+     123.9,
+     226.7,
+     296.3,
+     238.6
+    ],
+    [
+     53.8,
+     237.6,
+     131.5,
+     249.6
+    ]
+   ],
+   "passage": "The model is required to provide a rationale before the judgment",
+   "text": "A prompting trick: making the model explain its reasoning before committing to an answer measurably improves accuracy, and it leaves the TA a rationale to inspect.",
+   "id": 44
+  },
+  {
+   "page": 7,
+   "lens": 3,
+   "rects": [
+    [
+     338.4,
+     263.7,
+     500.4,
+     275.6
+    ]
+   ],
+   "passage": "The feedback boxes are empty by default,",
+   "text": "Stated here as an explicit guard against overreliance: the TA must click to insert any suggestion, so silence is never mistaken for approval.",
+   "id": 45
+  },
+  {
+   "page": 7,
+   "lens": 3,
+   "rects": [
+    [
+     199.0,
+     347.2,
+     294.0,
+     359.2
+    ]
+   ],
+   "passage": "posing Socratic questions",
+   "text": "The AI is instructed never to give the answer away, only to point toward it. TAs later said this was the single hardest thing to write themselves, and the main reason they valued the suggestions.",
+   "id": 46
+  },
+  {
+   "page": 7,
+   "lens": 1,
+   "rects": [
+    [
+     274.7,
+     391.1,
+     296.3,
+     403.0
+    ],
+    [
+     53.8,
+     402.0,
+     276.7,
+     414.0
+    ]
+   ],
+   "passage": "three instructor-provided exemplar questions for few-shot guidance",
+   "text": "Few-shot prompting: showing the model a handful of worked examples of what you want, rather than describing it in the abstract. Here, three sample questions written by the instructor.",
+   "id": 47
+  },
+  {
+   "page": 7,
+   "lens": 3,
+   "rects": [
+    [
+     283.2,
+     511.6,
+     296.3,
+     523.6
+    ],
+    [
+     53.8,
+     522.6,
+     222.2,
+     534.5
+    ]
+   ],
+   "passage": "we found that clarity of the rubrics was essential.",
+   "text": "A finding that surprised the team and became a recommendation. The rubrics had to be rewritten before the AI could apply them, because they relied on context every TA knew and no model did.",
+   "id": 48
+  },
+  {
+   "page": 8,
+   "lens": 3,
+   "rects": [
+    [
+     173.4,
+     81.9,
+     469.6,
+     93.9
+    ]
+   ],
+   "passage": "Example changes made to adapt the originally TA-facing rubrics for LLM.",
+   "text": "Worth reading in full. 'Perform a thorough welfare analysis' means something specific to a TA who sat through the lectures; to a model it means nothing. Making the tacit explicit is most of the work here, and it improved consistency among the human graders too.",
+   "id": 49
+  },
+  {
+   "page": 8,
+   "lens": 4,
+   "rects": [
+    [
+     342.4,
+     619.6,
+     504.6,
+     631.5
+    ]
+   ],
+   "passage": "RQ1: How does AI-mediated feedback affect",
+   "text": "Five research questions. RQ1 and RQ2 ask whether it worked, for students and for feedback quality. RQ3 through RQ5 ask how TAs actually behaved with the tool, which is where most of the practical lessons are.",
+   "id": 50
+  },
+  {
+   "page": 9,
+   "lens": 6,
+   "rects": [
+    [
+     357.6,
+     128.0,
+     536.0,
+     140.0
+    ]
+   ],
+   "passage": "De-identified essays were processed via OpenAI’s",
+   "text": "The student-privacy question every institution asks first. Names were stripped and OpenAI was contractually barred from keeping the text. Anyone considering this kind of tool will need the same arrangement to satisfy student-records law.",
+   "id": 51
+  },
+  {
+   "page": 9,
+   "lens": 1,
+   "rects": [
+    [
+     263.8,
+     196.7,
+     296.2,
+     208.7
+    ],
+    [
+     53.8,
+     207.7,
+     294.0,
+     219.6
+    ]
+   ],
+   "passage": "students submit an initial draft, receive formative TA feedback, and submit a",
+   "text": "Formative feedback is meant to help you improve while there is still time; summative grading judges the finished product. The same TA does both here, a week apart.",
+   "id": 52
+  },
+  {
+   "page": 9,
+   "lens": 4,
+   "rects": [
+    [
+     390.0,
+     218.1,
+     557.2,
+     230.0
+    ]
+   ],
+   "passage": "a baseline system that is a visually matched,",
+   "text": "The control condition, and the reason this study is credible. The comparison group used the same interface, same rubrics and same bank of past comments, with only the AI suggestions removed. So any difference is attributable to the AI, not to nicer software.",
+   "id": 53
+  },
+  {
+   "page": 9,
+   "lens": 4,
+   "rects": [
+    [
+     317.7,
+     417.7,
+     546.3,
+     429.7
+    ]
+   ],
+   "passage": "The 11 TAs and their corresponding sections were randomly",
+   "text": "How students were sorted into groups: by whole discussion section, not one at a time, because a TA cannot use two different tools at once.",
+   "id": 54
+  },
+  {
+   "page": 9,
+   "lens": 8,
+   "rects": [
+    [
+     317.7,
+     417.7,
+     546.3,
+     429.7
+    ]
+   ],
+   "passage": "The 11 TAs and their corresponding sections were randomly",
+   "text": "Randomisation happens at the level of 11 TA sections, but the analysis treats students as the unit with a TA random intercept. With only 11 clusters, that random effect is estimated from very little information. Was a cluster-robust or section-level analysis run as a check, and does the effect survive it?",
+   "id": 55
+  },
+  {
+   "page": 9,
+   "lens": 1,
+   "rects": [
+    [
+     189.4,
+     508.7,
+     253.7,
+     520.6
+    ]
+   ],
+   "passage": "rubric calibration",
+   "text": "Grade norming: graders independently mark the same sample essays, then meet to reconcile differences so everyone applies the standard the same way. Standard practice in large courses, and an important detail here, because it means the human baseline was unusually well trained.",
+   "id": 56
+  },
+  {
+   "page": 9,
+   "lens": 6,
+   "rects": [
+    [
+     249.0,
+     643.1,
+     296.3,
+     655.1
+    ],
+    [
+     53.8,
+     654.1,
+     205.8,
+     666.0
+    ]
+   ],
+   "passage": "approved as educational-exempt by the university IRB",
+   "text": "An IRB is the committee that reviews research involving people. 'Educational exempt' means this counted as ordinary teaching practice rather than an experiment on students, so every student received the new tool's feedback and opting out only removed their data from the analysis.",
+   "id": 57
+  },
+  {
+   "page": 10,
+   "lens": 4,
+   "rects": [
+    [
+     318.0,
+     405.5,
+     456.1,
+     417.5
+    ]
+   ],
+   "passage": "inspected residual-versus-fitted plots",
+   "text": "Routine diagnostic checks confirming the statistical model's assumptions hold. Reporting them is a sign of care; their absence is a common weakness in this literature.",
+   "id": 58
+  },
+  {
+   "page": 10,
+   "lens": 4,
+   "rects": [
+    [
+     458.1,
+     511.6,
+     560.5,
+     523.6
+    ],
+    [
+     318.0,
+     522.6,
+     362.8,
+     534.5
+    ]
+   ],
+   "passage": "FeedbackWriter records all user actions,",
+   "text": "Every click was logged. This is what makes the later behavioural findings possible: the researchers can say exactly how often TAs overrode the AI rather than relying on what TAs remembered.",
+   "id": 59
+  },
+  {
+   "page": 10,
+   "lens": 1,
+   "rects": [
+    [
+     239.8,
+     610.2,
+     296.3,
+     622.2
+    ],
+    [
+     53.8,
+     621.2,
+     124.1,
+     633.2
+    ]
+   ],
+   "passage": "we targeted an effect size of Cohen’s",
+   "text": "A power analysis, done before data collection. Researchers decide how small an effect they want to be able to detect, then calculate how many participants that requires. Here: 350 students needed, 354 enrolled. Doing this in advance is a mark of a carefully planned study.",
+   "id": 60
+  },
+  {
+   "page": 10,
+   "lens": 4,
+   "rects": [
+    [
+     342.1,
+     643.1,
+     530.8,
+     655.1
+    ]
+   ],
+   "passage": "There are no positive praise in the historical corpus.",
+   "text": "Easy to miss, and it matters. The bank of past comments contained no praise at all, so only the AI condition had a ready source of positive feedback. See my question on page 15.",
+   "id": 61
+  },
+  {
+   "page": 10,
+   "lens": 1,
+   "rects": [
+    [
+     53.8,
+     676.0,
+     193.7,
+     687.9
+    ]
+   ],
+   "passage": "using Variance Inflation Factors (VIF).",
+   "text": "A check for predictors that overlap so heavily the model cannot tell them apart. Values under 5 mean there is no problem, which is what they report.",
+   "id": 62
+  },
+  {
+   "page": 11,
+   "lens": 4,
+   "rects": [
+    [
+     189.7,
+     146.3,
+     296.2,
+     158.3
+    ],
+    [
+     53.8,
+     157.3,
+     213.8,
+     169.2
+    ]
+   ],
+   "passage": "We used an LLM-based rubric scorer to evaluate both first and final drafts.",
+   "text": "The most consequential decision in the study. The outcome being measured, essay quality, is judged by an AI rather than by humans. The four reasons given are real, but so is the risk, which the authors address in the next paragraph and I question below.",
+   "id": 63
+  },
+  {
+   "page": 11,
+   "lens": 4,
+   "rects": [
+    [
+     78.2,
+     259.5,
+     157.4,
+     271.5
+    ]
+   ],
+   "passage": "High rater variance.",
+   "text": "Even after repeated norming sessions, the 11 TAs graded inconsistently enough that their scores were unusable as a common yardstick. An honest admission, and a problem in its own right.",
+   "id": 64
+  },
+  {
+   "page": 11,
+   "lens": 1,
+   "rects": [
+    [
+     370.9,
+     281.5,
+     558.2,
+     293.4
+    ]
+   ],
+   "passage": "we first segmented each feedback message into idea",
+   "text": "An idea unit is the smallest chunk of feedback that makes one point. A single comment can contain several, so they are split apart before being counted and rated.",
+   "id": 65
+  },
+  {
+   "page": 11,
+   "lens": 1,
+   "rects": [
+    [
+     429.7,
+     391.1,
+     494.6,
+     403.0
+    ]
+   ],
+   "passage": "computing Cohen’s",
+   "text": "Cohen's Kappa measures agreement between two raters, correcting for agreement that would happen by luck alone. Above about 0.8 is considered very strong; the values here range from 0.79 to 0.91.",
+   "id": 66
+  },
+  {
+   "page": 11,
+   "lens": 5,
+   "rects": [
+    [
+     288.0,
+     405.7,
+     296.6,
+     417.6
+    ],
+    [
+     53.8,
+     416.6,
+     251.6,
+     428.6
+    ]
+   ],
+   "passage": "A potential concern with LLM-based scoring is",
+   "text": "Generation-evaluation bias: models tend to rate text generated by the same model family more favourably. Since GPT-4o both drafts the feedback and scores the essays, this is the study's central methodological vulnerability.",
+   "id": 67
+  },
+  {
+   "page": 11,
+   "lens": 8,
+   "rects": [
+    [
+     89.6,
+     460.5,
+     294.3,
+     472.4
+    ]
+   ],
+   "passage": "the essays are written by students, and the AI feedback",
+   "text": "The same GPT-4o family writes the hints and scores the revisions. The defence offered is that students wrote the essays and the hints withheld answers. But hints shape vocabulary: a student who absorbs the AI's phrasing may produce text a sibling model recognises as on-target. Was the AI grader's accuracy checked separately within each condition? The 60-essay expert check pools both, so a condition-specific bias would be invisible.",
+   "id": 68
+  },
+  {
+   "page": 11,
+   "lens": 4,
+   "rects": [
+    [
+     109.8,
+     559.1,
+     270.4,
+     571.1
+    ]
+   ],
+   "passage": "achieved a classification accuracy of 84.6%",
+   "text": "How they checked the AI grader: a human expert independently scored 60 essays, taking over 13 hours, and the AI agreed with that expert about 85% of the time. Good, but not the same as a human grade.",
+   "id": 69
+  },
+  {
+   "page": 12,
+   "lens": 1,
+   "rects": [
+    [
+     428.1,
+     81.9,
+     558.2,
+     93.9
+    ]
+   ],
+   "passage": "mixed-effects linear regression",
+   "text": "A statistical model for data with natural groupings, here essays nested within students and within TAs. It separates the effect of the tool from the fact that some students are simply stronger writers and some TAs simply harsher graders.",
+   "id": 70
+  },
+  {
+   "page": 12,
+   "lens": 8,
+   "rects": [
+    [
+     453.7,
+     160.3,
+     468.2,
+     169.3
+    ]
+   ],
+   "passage": "4.87",
+   "text": "This estimate looks wrong. Every other coefficient in this table sits on the 0-1 quality scale, and Table 7 on page 17 models the same outcome with the same predictor and reports 0.13 for Assignment 2. A value of 4.87 is impossible on a 0-1 scale. Is this a typo, and does the published model actually match Table 7?",
+   "id": 71
+  },
+  {
+   "page": 12,
+   "lens": 5,
+   "rects": [
+    [
+     453.2,
+     226.3,
+     557.7,
+     238.3
+    ]
+   ],
+   "passage": "grading time did not decrease.",
+   "text": "The result that reframes the whole paper, and it appears before the headline findings. The tool did not save TAs a single minute. Whatever it is worth, it is not worth it as a time-saver.",
+   "id": 72
+  },
+  {
+   "page": 12,
+   "lens": 8,
+   "rects": [
+    [
+     453.2,
+     226.3,
+     557.7,
+     238.3
+    ]
+   ],
+   "passage": "grading time did not decrease.",
+   "text": "If the tool costs the same time and produces no measurable learning gain, what is the case for a department adopting it over simply hiring another TA, or over AI-only feedback? Better revisions and better grading consistency are real, but were TAs less fatigued, or was the effort merely redistributed from searching to verifying?",
+   "id": 73
+  },
+  {
+   "page": 12,
+   "lens": 1,
+   "rects": [
+    [
+     356.2,
+     407.9,
+     558.2,
+     419.8
+    ]
+   ],
+   "passage": "we included random intercepts for each student and each",
+   "text": "This is what lets the model ask 'for the same student, with the same TA, did the AI condition help?' rather than comparing strangers to strangers.",
+   "id": 74
+  },
+  {
+   "page": 12,
+   "lens": 5,
+   "rects": [
+    [
+     458.8,
+     473.0,
+     560.7,
+     485.0
+    ],
+    [
+     318.0,
+     484.0,
+     431.5,
+     495.9
+    ]
+   ],
+   "passage": "First Draft Quality strongly predicts the Final Draft Quality",
+   "text": "Unsurprising but worth stating: the best predictor of a good revision is a good first draft. The tool's effect is measured on top of this.",
+   "id": 75
+  },
+  {
+   "page": 12,
+   "lens": 5,
+   "rects": [
+    [
+     318.0,
+     505.9,
+     479.7,
+     517.9
+    ]
+   ],
+   "passage": "there is a significant effect of the Condition,",
+   "text": "The headline number. Students receiving AI-mediated feedback scored about 5 percentage points higher on their revision, roughly two extra rubric items addressed. 'Significant' here means unlikely to be a fluke, not necessarily large.",
+   "id": 76
+  },
+  {
+   "page": 13,
+   "lens": 1,
+   "rects": [
+    [
+     521.7,
+     131.3,
+     559.4,
+     143.2
+    ]
+   ],
+   "passage": "< 0.001∗∗∗",
+   "text": "Three asterisks mark the strongest significance level reported here, p < 0.001: if the tool truly had no effect, a pattern this strong would turn up less than once in a thousand studies. Note that significance says a result is unlikely to be chance, not that it is large.",
+   "id": 77
+  },
+  {
+   "page": 13,
+   "lens": 1,
+   "rects": [
+    [
+     521.7,
+     157.6,
+     559.4,
+     169.5
+    ]
+   ],
+   "passage": "< 0.001∗∗∗",
+   "text": "Highly significant, and by far the biggest effect anywhere in the paper (t = -43.90). Students scored much lower on the Assignment 2 post-test. Because the conditions were swapped at exactly this point, it is worth knowing why. See my question alongside.",
+   "id": 78
+  },
+  {
+   "page": 13,
+   "lens": 8,
+   "rects": [
+    [
+     452.2,
+     160.3,
+     469.7,
+     169.3
+    ]
+   ],
+   "passage": "-0.35",
+   "text": "Assignment 2 is associated with a 35-point drop in post-test score, with a t value of -43.9, far larger than any other effect in the study. Something big changed between assignments. What was it, and could it interact with condition, given that conditions were swapped at exactly that point?",
+   "id": 79
+  },
+  {
+   "page": 13,
+   "lens": 1,
+   "rects": [
+    [
+     521.7,
+     197.4,
+     559.4,
+     209.3
+    ]
+   ],
+   "passage": "< 0.001∗∗∗",
+   "text": "The one substantively important result in this table. Students who wrote better final drafts did score better on the quiz, which shows the quiz was measuring the knowledge the essay practised. That makes the absence of a condition effect more meaningful, not less: the measure worked, the tool just did not move students far enough to register on it.",
+   "id": 80
+  },
+  {
+   "page": 13,
+   "lens": 5,
+   "rects": [
+    [
+     95.8,
+     566.4,
+     180.8,
+     578.4
+    ]
+   ],
+   "passage": "did not affect students’",
+   "text": "The null result. On the quiz taken after revising, the two groups were indistinguishable. Better revisions did not become more learning, at least not learning this quiz could detect.",
+   "id": 81
+  },
+  {
+   "page": 13,
+   "lens": 5,
+   "rects": [
+    [
+     237.3,
+     621.2,
+     292.5,
+     633.2
+    ],
+    [
+     53.8,
+     632.2,
+     198.7,
+     644.1
+    ]
+   ],
+   "passage": "final draft qual­ ity was a significant positive predictor",
+   "text": "An important qualifier to that null. Students who wrote better revisions did score better on the quiz. So the quiz was measuring the right thing; the tool just did not move students far enough to show up on it.",
+   "id": 82
+  },
+  {
+   "page": 13,
+   "lens": 5,
+   "rects": [
+    [
+     533.9,
+     632.2,
+     560.5,
+     644.1
+    ],
+    [
+     318.0,
+     643.1,
+     508.5,
+     655.1
+    ]
+   ],
+   "passage": "TAs in the baseline condition had higher inter-rater variance,",
+   "text": "An underrated benefit. With the AI, the 11 TAs graded more like each other. For a student, consistency across sections is a fairness issue as much as a quality one.",
+   "id": 83
+  },
+  {
+   "page": 13,
+   "lens": 5,
+   "rects": [
+    [
+     288.0,
+     654.1,
+     296.6,
+     666.0
+    ],
+    [
+     53.8,
+     665.0,
+     292.5,
+     677.0
+    ]
+   ],
+   "passage": "A plausible explanation for the null condition effect is limited prac­",
+   "text": "The authors' explanation: each rubric item gives a student exactly one chance to practise that idea. One repetition is thin soil for durable learning. Note this reasoning is offered after seeing the result, not predicted in advance.",
+   "id": 84
+  },
+  {
+   "page": 14,
+   "lens": 5,
+   "rects": [
+    [
+     91.1,
+     610.2,
+     273.5,
+     622.2
+    ]
+   ],
+   "passage": "show significantly higher coverage on the rubrics",
+   "text": "TAs using the AI addressed more of the rubric and wrote nearly twice as many words, 286 versus 157 per essay. Part of the benefit may simply be that students received more feedback.",
+   "id": 85
+  },
+  {
+   "page": 14,
+   "lens": 5,
+   "rects": [
+    [
+     53.8,
+     686.9,
+     292.5,
+     698.9
+    ]
+   ],
+   "passage": "the TAs using FeedbackWriter provided significantly more Sum­",
+   "text": "Breaking the feedback down by type: the AI condition produced more summary and more solution comments. Solutions are the type prior research links most strongly to actual revision.",
+   "id": 86
+  },
+  {
+   "page": 15,
+   "lens": 5,
+   "rects": [
+    [
+     86.3,
+     81.9,
+     388.4,
+     93.9
+    ]
+   ],
+   "passage": "Example pairs of feedback from FeedbackWriter (AI-mediated) and baseline",
+   "text": "The most illuminating table in the paper for a non-specialist. Read the two columns side by side. The AI-assisted comments name the student's own example, acknowledge what they got right, and ask a question; the human-only comments are shorter and more generic. This is what a 5-point difference looks like in practice.",
+   "id": 87
+  },
+  {
+   "page": 15,
+   "lens": 5,
+   "rects": [
+    [
+     97.4,
+     596.7,
+     294.0,
+     608.6
+    ]
+   ],
+   "passage": "AI-mediated feedback was rated significantly higher in",
+   "text": "The quality scores: more actionable, more likely to guide rather than tell, and warmer in tone. Accuracy barely differed, which makes sense, since the same expert TAs wrote the final text in both conditions.",
+   "id": 88
+  },
+  {
+   "page": 15,
+   "lens": 8,
+   "rects": [
+    [
+     180.3,
+     629.6,
+     234.2,
+     641.5
+    ]
+   ],
+   "passage": "0.974 vs. 0.808,",
+   "text": "Tone shows the largest gap of any quality measure, 0.97 against 0.81. But page 10 notes the bank of historic comments contains no praise at all, so baseline TAs had no ready source of positive feedback while the AI condition was handed praise suggestions. How much of this gap is the AI writing warmly, and how much is simply that one condition had praise available and the other did not?",
+   "id": 89
+  },
+  {
+   "page": 16,
+   "lens": 5,
+   "rects": [
+    [
+     215.3,
+     494.7,
+     292.6,
+     506.6
+    ],
+    [
+     53.8,
+     505.6,
+     176.2,
+     517.6
+    ]
+   ],
+   "passage": "Historic feedback sug­ gestions were adopted 1,348 times",
+   "text": "How much of the final feedback originated with the AI: about half of all comments came from an AI suggestion, another fifth from the bank of past comments, and the rest the TAs wrote themselves.",
+   "id": 90
+  },
+  {
+   "page": 16,
+   "lens": 5,
+   "rects": [
+    [
+     63.8,
+     560.4,
+     217.8,
+     572.4
+    ]
+   ],
+   "passage": "TAs did not accept AI suggestions blindly.",
+   "text": "The evidence for genuine human oversight: TAs overrode the AI's verdict on roughly one rubric item in nine, and edited 806 comments after inserting them.",
+   "id": 91
+  },
+  {
+   "page": 16,
+   "lens": 5,
+   "rects": [
+    [
+     327.9,
+     621.2,
+     521.0,
+     633.2
+    ]
+   ],
+   "passage": "Add clarifying hints and localize where to revise.",
+   "text": "What TAs actually changed. The AI was told never to reveal answers, and TAs found it sometimes overshot into vagueness, so they added a nudge or pointed to the exact spot in the essay.",
+   "id": 92
+  },
+  {
+   "page": 17,
+   "lens": 5,
+   "rects": [
+    [
+     86.6,
+     81.9,
+     340.4,
+     93.9
+    ]
+   ],
+   "passage": "In the FeedbackWriter Condition, TAs actively engaged with AI.",
+   "text": "Read the first column down. TAs overrode about 4.7 AI judgments per essay on Assignment 1 but fewer than 1 on Assignment 2. The authors read this as the AI improving. See my question alongside.",
+   "id": 93
+  },
+  {
+   "page": 17,
+   "lens": 8,
+   "rects": [
+    [
+     485.2,
+     153.4,
+     503.8,
+     162.3
+    ]
+   ],
+   "passage": "10.53",
+   "text": "The columns in this row sum to 7.64, not 10.53. The other rows are also short. I assume the difference is comments TAs wrote from scratch, but the table does not say so. What makes up the gap?",
+   "id": 94
+  },
+  {
+   "page": 17,
+   "lens": 8,
+   "rects": [
+    [
+     214.4,
+     206.0,
+     228.9,
+     214.9
+    ]
+   ],
+   "passage": "0.67",
+   "text": "Judgment overrides collapse from about 4.7 per essay in Assignment 1 to about 0.7 in Assignment 2. Page 19 attributes this to sharper rubrics making the AI more accurate. But fewer overrides is equally consistent with TAs trusting the AI more over time, which is the out-of-the-loop effect the authors themselves cite on page 20. Was AI accuracy measured independently in each assignment, rather than inferred from how often TAs disagreed?",
+   "id": 95
+  },
+  {
+   "page": 17,
+   "lens": 1,
+   "rects": [
+    [
+     257.3,
+     325.9,
+     294.9,
+     337.9
+    ]
+   ],
+   "passage": "< 0.001∗∗∗",
+   "text": "p < 0.001. On an intercept this is routine and not substantively interesting; it only says the baseline value is reliably different from zero.",
+   "id": 96
+  },
+  {
+   "page": 17,
+   "lens": 1,
+   "rects": [
+    [
+     264.8,
+     339.3,
+     287.2,
+     350.8
+    ]
+   ],
+   "passage": "0.015∗",
+   "text": "A single asterisk means p < 0.05, the conventional threshold for calling a result unlikely to be chance. It is weaker evidence than the three-asterisk rows above. This one matters: the benefit of the AI condition survives even after accounting for how much TAs actually used the suggestions.",
+   "id": 97
+  },
+  {
+   "page": 17,
+   "lens": 1,
+   "rects": [
+    [
+     257.3,
+     352.2,
+     294.9,
+     364.2
+    ]
+   ],
+   "passage": "< 0.001∗∗∗",
+   "text": "p < 0.001 for the assignment effect. Compare the estimate in this row, 0.13, with the 4.87 reported for the same variable in Table 3 on page 12.",
+   "id": 98
+  },
+  {
+   "page": 17,
+   "lens": 5,
+   "rects": [
+    [
+     327.9,
+     355.6,
+     459.6,
+     367.6
+    ]
+   ],
+   "passage": "Shorten or simplify the feedback.",
+   "text": "A practical corrective: TAs cut the AI's explanations because students skip long comments. More thorough is not automatically more useful.",
+   "id": 99
+  },
+  {
+   "page": 17,
+   "lens": 1,
+   "rects": [
+    [
+     264.8,
+     391.9,
+     287.2,
+     403.4
+    ]
+   ],
+   "passage": "0.027∗",
+   "text": "p < 0.05, the weakest evidence threshold in general use. This single starred value is what the abstract's claim that gains grow as TAs adopt more AI suggestions rests on, and it is the only one of the five usage variables in this table to reach significance at all.",
+   "id": 100
+  },
+  {
+   "page": 17,
+   "lens": 8,
+   "rects": [
+    [
+     187.2,
+     394.4,
+     205.8,
+     403.4
+    ]
+   ],
+   "passage": "0.005",
+   "text": "The abstract's claim that gains grow as TAs adopt more AI suggestions rests entirely on this coefficient. It is one of five usage variables, the only significant one, at p = 0.027, and it is correlational: TAs may insert more constructive comments on weaker essays, or more engaged TAs may do both. Is this strong enough to carry a sentence in the abstract?",
+   "id": 101
+  },
+  {
+   "page": 17,
+   "lens": 5,
+   "rects": [
+    [
+     343.1,
+     482.9,
+     557.2,
+     494.9
+    ]
+   ],
+   "passage": "TAs treat AI judgments as a complement, not a replacement,",
+   "text": "How experts used the tool: form your own view first, then treat the AI as a second opinion, and spend the extra time only where the two disagree.",
+   "id": 102
+  },
+  {
+   "page": 17,
+   "lens": 5,
+   "rects": [
+    [
+     63.8,
+     500.6,
+     205.6,
+     512.6
+    ]
+   ],
+   "passage": "Clarify gaps in near-miss mistakes.",
+   "text": "The sharpest limitation TAs found. When a student is almost right, generic guidance can read as approval, so a student may think they have already done what was asked.",
+   "id": 103
+  },
+  {
+   "page": 17,
+   "lens": 5,
+   "rects": [
+    [
+     63.8,
+     643.1,
+     293.3,
+     655.1
+    ]
+   ],
+   "passage": "Extend the feedback to cover multiple relevant rubrics.",
+   "text": "Where human judgment clearly beat the machine. When a student had misunderstood something fundamental, TAs replaced several itemised comments with one comment about the underlying idea. The AI, bound to the rubric, could not see the forest.",
+   "id": 104
+  },
+  {
+   "page": 17,
+   "lens": 5,
+   "rects": [
+    [
+     495.6,
+     697.9,
+     558.2,
+     709.9
+    ]
+   ],
+   "passage": "they did not treat",
+   "text": "A neat observation about attention. TAs corrected the AI's verdicts, because those fed into grades, but rarely fixed its highlighting, because nothing downstream depended on it. People maintain the parts of a system that have consequences.",
+   "id": 105
+  },
+  {
+   "page": 18,
+   "lens": 5,
+   "rects": [
+    [
+     349.7,
+     377.2,
+     436.5,
+     389.2
+    ]
+   ],
+   "passage": "AI tended to be stricter.",
+   "text": "The error pattern TAs came to rely on. They preferred a tool that flags too much over one that flags too little, because a false alarm is visible and a missed error is not.",
+   "id": 106
+  },
+  {
+   "page": 18,
+   "lens": 5,
+   "rects": [
+    [
+     327.9,
+     616.7,
+     433.4,
+     628.7
+    ]
+   ],
+   "passage": "We attribute FeedbackWriter’s",
+   "text": "The authors' explanation of why it worked, in three parts: the AI covers ground humans miss and writes better-phrased hints; the interface makes checking cheap; and the rubrics were rewritten until both AI and humans could apply them consistently.",
+   "id": 107
+  },
+  {
+   "page": 19,
+   "lens": 5,
+   "rects": [
+    [
+     384.6,
+     265.0,
+     558.2,
+     277.0
+    ]
+   ],
+   "passage": "This study provides suggestive evidence on",
+   "text": "Why not skip the humans entirely? Their answer: TAs overrode roughly one judgment in nine, leaned on trusted pre-approved comments, and edited hundreds of suggestions. Suggestive, as they say, but not tested.",
+   "id": 108
+  },
+  {
+   "page": 19,
+   "lens": 5,
+   "rects": [
+    [
+     53.8,
+     380.1,
+     252.9,
+     392.1
+    ]
+   ],
+   "passage": "Under time pressure, TAs prioritized error correction",
+   "text": "The most quietly damning finding. TAs who had used the AI in Assignment 1 knew what good feedback looked like, and still could not produce it unaided in Assignment 2. Knowing the technique is not the constraint; time is.",
+   "id": 109
+  },
+  {
+   "page": 19,
+   "lens": 6,
+   "rects": [
+    [
+     318.0,
+     418.5,
+     502.9,
+     430.4
+    ]
+   ],
+   "passage": "using AI-only feedback may bring ethical concerns",
+   "text": "The question institutions are actually arguing about: whether students are owed feedback from a person. The authors flag motivation and trust, and leave it open.",
+   "id": 110
+  },
+  {
+   "page": 19,
+   "lens": 5,
+   "rects": [
+    [
+     320.0,
+     558.2,
+     375.2,
+     567.1
+    ]
+   ],
+   "passage": "“out-of-the-loop”",
+   "text": "A classic finding from aviation and automation research: when a machine handles a task well, the human supervising it loses situational awareness, and struggles to take over when it fails. The reason this system keeps showing its work rather than just its answer.",
+   "id": 111
+  },
+  {
+   "page": 19,
+   "lens": 1,
+   "rects": [
+    [
+     346.0,
+     632.2,
+     558.4,
+     644.1
+    ]
+   ],
+   "passage": "parallels knowledge engineering efforts in cognitive tutor",
+   "text": "Knowledge engineering: the painstaking work of writing down what an expert knows in a form a machine can use. It was the bottleneck for teaching software in the 1980s, and this paper finds it is still the bottleneck.",
+   "id": 112
+  },
+  {
+   "page": 19,
+   "lens": 1,
+   "rects": [
+    [
+     415.9,
+     686.9,
+     481.1,
+     698.9
+    ]
+   ],
+   "passage": "Expert blind spots",
+   "text": "Experts forget what it was like not to know. They omit steps that feel obvious, which is exactly why rubrics written by experts turn out to be underspecified when a machine tries to follow them.",
+   "id": 113
+  },
+  {
+   "page": 20,
+   "lens": 5,
+   "rects": [
+    [
+     317.6,
+     308.1,
+     556.6,
+     320.1
+    ]
+   ],
+   "passage": "well-suited to writing tasks where the expectations can be articu­",
+   "text": "The honest boundary on the claim. This works when 'good' can be written down as a checklist, as in a gateway science course. The authors say it will not transfer to writing judged on argument, voice or style.",
+   "id": 114
+  },
+  {
+   "page": 20,
+   "lens": 5,
+   "rects": [
+    [
+     77.9,
+     423.9,
+     265.6,
+     435.9
+    ]
+   ],
+   "passage": "AI can be stricter, it is easy for TAs to correct",
+   "text": "A transferable design rule for any AI that flags things for human review: tune it to over-flag. Humans dismiss false alarms easily but rarely catch what was never raised.",
+   "id": 115
+  },
+  {
+   "page": 20,
+   "lens": 6,
+   "rects": [
+    [
+     377.2,
+     571.1,
+     556.7,
+     583.1
+    ]
+   ],
+   "passage": "may support assessment modalities that allow stu­",
+   "text": "The broader ambition. Big introductory courses lean on timed exams largely because grading essays does not scale. Make feedback cheaper and a department can assess students in ways that suit more of them.",
+   "id": 116
+  },
+  {
+   "page": 20,
+   "lens": 5,
+   "rects": [
+    [
+     78.2,
+     643.1,
+     294.0,
+     655.1
+    ]
+   ],
+   "passage": "Displaying confidence levels on rubrics may support",
+   "text": "A suggestion worth noting: show reviewers which items the AI is usually right about, so they can spend their attention where it is actually needed.",
+   "id": 117
+  },
+  {
+   "page": 21,
+   "lens": 5,
+   "rects": [
+    [
+     254.9,
+     270.5,
+     296.3,
+     282.5
+    ],
+    [
+     53.8,
+     281.5,
+     158.3,
+     293.4
+    ]
+   ],
+   "passage": "we did not survey or interview students",
+   "text": "A striking gap. A paper about how students respond to AI feedback never asked a student anything. Everything student-side is test scores.",
+   "id": 118
+  },
+  {
+   "page": 21,
+   "lens": 8,
+   "rects": [
+    [
+     254.9,
+     270.5,
+     296.3,
+     282.5
+    ],
+    [
+     53.8,
+     281.5,
+     158.3,
+     293.4
+    ]
+   ],
+   "passage": "we did not survey or interview students",
+   "text": "Students are the subject of the title and the only group never consulted. Did the team consider even a brief exit survey, and was that ruled out by the educational-exempt approval, which may have limited what could be asked of students directly?",
+   "id": 119
+  },
+  {
+   "page": 21,
+   "lens": 6,
+   "rects": [
+    [
+     150.2,
+     347.2,
+     294.0,
+     359.2
+    ]
+   ],
+   "passage": "they were not informed which specific",
+   "text": "Students knew a tool was in use but not which comments it had shaped. Whether that disclosure is owed to them is an open question for institutions, not just for researchers.",
+   "id": 120
+  },
+  {
+   "page": 21,
+   "lens": 5,
+   "rects": [
+    [
+     53.4,
+     451.3,
+     280.2,
+     463.3
+    ]
+   ],
+   "passage": "We introduce FeedbackWriter, a system that provides AI",
+   "text": "The conclusion restates the finding with its condition attached: the benefit holds when it is easy for humans to review, adopt and edit. The interface is part of the result, not packaging around it.",
+   "id": 121
+  },
+  {
+   "page": 22,
+   "lens": 7,
+   "rects": [
+    [
+     124.2,
+     174.0,
+     210.0,
+     183.3
+    ]
+   ],
+   "passage": "Writing as a mode of learning.",
+   "text": "Emig 1977, the origin of writing-to-learn. Argued that writing is not just a way to report thinking but a way to do it, which is why an economics course assigns essays at all.",
+   "id": 122
+  },
+  {
+   "page": 22,
+   "lens": 7,
+   "rects": [
+    [
+     178.1,
+     189.9,
+     294.0,
+     199.2
+    ]
+   ],
+   "passage": "The out-of-the-loop performance problem",
+   "text": "Endsley and Kiris 1995, from human factors research on cockpit automation. Showed that partial automation can leave operators less able to intervene when it fails. Cited here to justify keeping TAs actively judging rather than merely approving.",
+   "id": 123
+  },
+  {
+   "page": 22,
+   "lens": 7,
+   "rects": [
+    [
+     513.2,
+     293.5,
+     560.0,
+     302.8
+    ],
+    [
+     336.6,
+     301.5,
+     380.9,
+     310.8
+    ]
+   ],
+   "passage": "Will you accept an imperfect ai?",
+   "text": "Kocielnik et al. 2019 studied how to set user expectations for AI that is sometimes wrong. Directly relevant to why TAs tolerated this system's errors so readily.",
+   "id": 124
+  },
+  {
+   "page": 22,
+   "lens": 7,
+   "rects": [
+    [
+     353.4,
+     333.4,
+     490.3,
+     342.7
+    ]
+   ],
+   "passage": "Intelligent tutoring goes to school in the big city.",
+   "text": "Koedinger et al. 1997, on Cognitive Tutor, one of the few AI teaching systems to reach classrooms at scale. Its lesson, that formalising expert knowledge is the hard part, recurs in this paper's rubric work.",
+   "id": 125
+  },
+  {
+   "page": 22,
+   "lens": 7,
+   "rects": [
+    [
+     149.2,
+     437.0,
+     294.2,
+     446.3
+    ]
+   ],
+   "passage": "Human Tutoring Improves the Impact of AI Tutor",
+   "text": "One of two 2025 studies finding that human tutors plus AI beat AI alone in middle-school maths. Part of the recent evidence that pairing beats full automation.",
+   "id": 126
+  },
+  {
+   "page": 22,
+   "lens": 7,
+   "rects": [
+    [
+     494.1,
+     452.9,
+     560.4,
+     462.2
+    ],
+    [
+     336.6,
+     460.9,
+     495.9,
+     470.2
+    ]
+   ],
+   "passage": "The Wisdom of Practice: Lessons Learned from the Study of Highly Effective Tutors.",
+   "text": "Lepper and Woolverton, the source of the INSPIRE model. Derived from watching unusually effective human tutors, which is why the AI here is told to hint rather than tell.",
+   "id": 127
+  },
+  {
+   "page": 22,
+   "lens": 7,
+   "rects": [
+    [
+     193.2,
+     460.9,
+     260.9,
+     470.2
+    ]
+   ],
+   "passage": "The power of feedback.",
+   "text": "Hattie and Timperley 2007 is the most cited paper in this field. It established that feedback is among the most powerful influences on learning, but that its effect varies enormously depending on how it is given. The premise this whole study builds on.",
+   "id": 128
+  },
+  {
+   "page": 22,
+   "lens": 7,
+   "rects": [
+    [
+     127.0,
+     516.7,
+     251.5,
+     526.0
+    ]
+   ],
+   "passage": "Principles of mixed-initiative user interfaces.",
+   "text": "Horvitz 1999, a foundational HCI paper on systems where human and machine take turns leading. FeedbackWriter is a direct descendant: the AI proposes, the human disposes.",
+   "id": 129
+  },
+  {
+   "page": 25,
+   "lens": 1,
+   "rects": [
+    [
+     205.9,
+     113.6,
+     294.3,
+     125.6
+    ]
+   ],
+   "passage": "we categorized feedback",
+   "text": "The definitions and examples behind the four feedback types counted throughout the paper. Useful if you want to see what actually got labelled a 'solution' rather than a 'problem'.",
+   "id": 130
+  },
+  {
+   "page": 26,
+   "lens": 4,
+   "rects": [
+    [
+     88.3,
+     81.9,
+     329.6,
+     93.9
+    ]
+   ],
+   "passage": "Rubric for feedback quality evaluation based on 4 metrics:",
+   "text": "The full scoring rubric for feedback quality, with real examples of comments that passed and failed each test. This is where the abstract numbers on actionability and independent learning come from.",
+   "id": 131
+  }
+ ]
+}
