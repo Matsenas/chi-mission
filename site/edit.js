@@ -459,6 +459,7 @@ function openComposer({ note, anchor }) {
   }
   const syncChips = () => {
     for (const b of chips.children) b.setAttribute('aria-checked', +b.dataset.lens === lens);
+    if (anchor) showPreview(anchor, lens); // the passage being attached, in the chosen colour
   };
   chips.addEventListener('click', (e) => {
     const b = e.target.closest('[data-lens]');
@@ -531,6 +532,24 @@ function openComposer({ note, anchor }) {
 
 function closeComposer() {
   $('#composer')?.remove();
+  clearPreview();
+}
+
+/* While writing a new note or re-anchoring one, show the chosen passage at hover strength. */
+let preview = [];
+function showPreview(anchor, lensId) {
+  clearPreview();
+  const lens = S.lenses.get(lensId);
+  preview = anchor.rects.map(([x0, y0, x1, y1]) => {
+    const m = el('div', 'mark is-hover');
+    m.style.cssText = `--x:${x0};--y:${y0};--w:${x1 - x0};--h:${y1 - y0};--c:${lens.colour};--ink:${lens.ink}`;
+    S.pages[anchor.page - 1].marks.append(m);
+    return m;
+  });
+}
+function clearPreview() {
+  for (const m of preview) m.remove();
+  preview = [];
 }
 
 /* ---------------- Toast ---------------- */
