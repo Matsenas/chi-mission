@@ -51,7 +51,6 @@ body:not(.editing) .edit-only { display: none; }
 .composer-text:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 .composer-foot { display: flex; align-items: center; gap: 8px; }
 .composer-spacer { flex: 1; }
-.composer-hint { color: var(--muted); font-size: 11px; }
 
 .token-dialog input[type="password"] {
   width: 100%; height: 36px; padding: 0 10px; margin: 4px 0 10px;

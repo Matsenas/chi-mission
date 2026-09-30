@@ -474,7 +474,7 @@ function openComposer({ note, anchor }) {
 
   const foot = el('div', 'composer-foot');
   if (editing) {
-    const move = app.iconButton('reanchor', anchor ? 'Passage changed' : 'Re-anchor: select a new passage', 'Pick a different passage for this note');
+    const move = app.iconButton('reanchor', anchor ? 'Passage changed' : 'Re-anchor', 'Pick a different passage for this note');
     move.classList.add('tip-start'); // leftmost in the footer, so the tooltip opens rightwards
     move.classList.toggle('is-on', !!anchor);
     move.addEventListener('click', () => {
@@ -484,11 +484,12 @@ function openComposer({ note, anchor }) {
     });
     foot.append(move);
   }
-  foot.append(el('span', 'composer-spacer'), el('span', 'composer-hint', '⌘/Ctrl + Enter'));
+  foot.append(el('span', 'composer-spacer'));
   const cancel = el('button', 'edit-btn', 'Cancel');
   cancel.type = 'button';
   cancel.addEventListener('click', closeComposer);
   const save = el('button', 'edit-btn primary', 'Save');
+  save.setAttribute('aria-keyshortcuts', 'Meta+Enter Control+Enter'); // still works, just not shown
   save.type = 'button';
   const syncSave = () => { save.disabled = !text.value.trim(); };
   text.addEventListener('input', syncSave);
