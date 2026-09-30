@@ -181,6 +181,33 @@
    "text": "Number of participants (students) involved."
   },
   {
+   "id": 137,
+   "page": 2,
+   "lens": 2,
+   "rects": [
+    [
+     467.6,
+     95.3,
+     559.7,
+     107.7
+    ],
+    [
+     317.7,
+     106.3,
+     558.2,
+     118.7
+    ],
+    [
+     317.9,
+     117.2,
+     427.5,
+     129.7
+    ]
+   ],
+   "passage": "two studies this year [37, 106] have found that human-AI tutoring outperforms AI tutoring alone in middle school math",
+   "text": "Significant indicators of positive impact of enabling tutors with AI"
+  },
+  {
    "page": 2,
    "lens": 1,
    "rects": [
@@ -295,6 +322,27 @@
    "text": "Higher TA adoption of AI feedback suggestions correlated with higher improvements for students."
   },
   {
+   "id": 138,
+   "page": 2,
+   "lens": 8,
+   "rects": [
+    [
+     526.4,
+     204.8,
+     558.2,
+     217.3
+    ],
+    [
+     317.9,
+     215.8,
+     358.3,
+     228.2
+    ]
+   ],
+   "passage": "different from math",
+   "text": "I wonder what'd the results would look like for maths?"
+  },
+  {
    "page": 2,
    "lens": 4,
    "rects": [
@@ -329,6 +377,33 @@
    "passage": "mitigating concerns about unfiltered",
    "text": "A practical argument for schools nervous about AI. Because a human approves every comment, the institution never has to defend an AI message it did not vet. This is the kind of reasoning that decides whether a tool gets adopted.",
    "id": 12
+  },
+  {
+   "id": 135,
+   "page": 2,
+   "lens": 2,
+   "rects": [
+    [
+     143.1,
+     445.7,
+     295,
+     458.2
+    ],
+    [
+     53.8,
+     456.7,
+     294.1,
+     469.1
+    ],
+    [
+     53.8,
+     467.7,
+     105.5,
+     480.1
+    ]
+   ],
+   "passage": "providing targeted feedback to students’ open-ended written work requires substantial efforts from experts [15, 40, 60 , 88]",
+   "text": "Previous research highlights substantial effort of writing informative feedback in open-ended assignments."
   },
   {
    "page": 2,
@@ -391,55 +466,94 @@
    "id": 16
   },
   {
+   "id": 17,
    "page": 2,
    "lens": 2,
    "rects": [
     [
      143.4,
-     610.2,
+     610,
      294,
-     622.2
+     622.5
+    ],
+    [
+     53.8,
+     621,
+     102.3,
+     633.4
     ]
    ],
-   "passage": "50% of math-tutoring dialogues contain",
-   "text": "A cited study found that in half of the AI tutoring conversations it examined, the AI made a mistake somewhere. This is the evidence base for not letting AI talk to students unsupervised.",
-   "id": 17
+   "passage": "50% of math-tutoring dialogues contain mistakes [36]",
+   "text": "A cited study found that in half of the AI tutoring conversations it examined, the AI made a mistake somewhere. This is the evidence base for not letting AI talk to students unsupervised."
   },
   {
+   "id": 18,
    "page": 2,
    "lens": 2,
    "rects": [
     [
      107.2,
-     621.2,
-     296.6,
-     633.2
+     621,
+     294.3,
+     633.4
     ],
     [
      53.8,
-     634.8,
-     86.9,
-     643.9
+     631.9,
+     159.6,
+     644.3
     ]
    ],
-   "passage": "AI-generated next-step actions reach only 52%-70% accuracy",
-   "text": "In a benchmark called TutorGym, when AI was asked what a tutor should do next, it got it right only about half to two-thirds of the time.",
-   "id": 18
+   "passage": "AI-generated next-step actions reach only 52%-70% accuracy in TutorGym [114]",
+   "text": "In a benchmark called TutorGym, when AI was asked what a tutor should do next, it got it right only about half to two-thirds of the time."
   },
   {
+   "id": 19,
    "page": 2,
    "lens": 2,
    "rects": [
     [
      181.3,
-     632.2,
+     631.9,
      294,
-     644.1
+     644.3
+    ],
+    [
+     53.5,
+     642.9,
+     179.7,
+     655.3
     ]
    ],
-   "passage": "30% of ChatGPT algebra hints",
-   "text": "Nearly a third of hints ChatGPT produced for algebra problems were judged too poor to give to a student.",
-   "id": 19
+   "passage": "30% of ChatGPT algebra hints were rejected for low quality [86]",
+   "text": "Nearly a third of hints ChatGPT produced for algebra problems were judged too poor to give to a student."
+  },
+  {
+   "id": 136,
+   "page": 2,
+   "lens": 2,
+   "rects": [
+    [
+     244.9,
+     642.9,
+     294.1,
+     655.3
+    ],
+    [
+     53.8,
+     653.8,
+     294,
+     666.2
+    ],
+    [
+     53.8,
+     664.7,
+     63.7,
+     677.2
+    ]
+   ],
+   "passage": "AI-generated feedback are found to negatively impact student learning outcomes [7]",
+   "text": "Poor AI feedback can have negative effects on students' learning outcomes."
   },
   {
    "page": 2,
@@ -2284,5 +2398,5 @@
    "id": 131
   }
  ],
- "nextId": 135
+ "nextId": 139
 }
