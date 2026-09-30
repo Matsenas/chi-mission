@@ -1219,40 +1219,52 @@
    "text": "Five research questions. RQ1 and RQ2 ask whether it worked, for students and for feedback quality. RQ3 through RQ5 ask how TAs actually behaved with the tool, which is where most of the practical lessons are."
   },
   {
+   "id": 51,
    "page": 9,
    "lens": 6,
    "rects": [
     [
      357.6,
-     128,
-     536,
-     140
+     128.1,
+     558.2,
+     140.6
+    ],
+    [
+     317.6,
+     139.1,
+     401.1,
+     151.6
     ]
    ],
-   "passage": "De-identified essays were processed via OpenAI’s",
-   "text": "The student-privacy question every institution asks first. Names were stripped and OpenAI was contractually barred from keeping the text. Anyone considering this kind of tool will need the same arrangement to satisfy student-records law.",
-   "id": 51
+   "passage": "De-identified essays were processed via OpenAI’s API with no data retention",
+   "text": "The student-privacy question every institution asks first. Names were stripped and OpenAI was contractually barred from keeping the text. Anyone considering this kind of tool will need the same arrangement to satisfy student-records law."
   },
   {
+   "id": 52,
    "page": 9,
    "lens": 1,
    "rects": [
     [
      263.8,
-     196.7,
-     296.2,
-     208.7
+     196.8,
+     294.1,
+     209.2
     ],
     [
      53.8,
-     207.7,
-     294,
-     219.6
+     207.8,
+     295,
+     220.2
+    ],
+    [
+     53.8,
+     218.7,
+     198.7,
+     231.1
     ]
    ],
-   "passage": "students submit an initial draft, receive formative TA feedback, and submit a",
-   "text": "Formative feedback is meant to help you improve while there is still time; summative grading judges the finished product. The same TA does both here, a week apart.",
-   "id": 52
+   "passage": "students submit an initial draft, receive formative TA feedback, and submit a revised final draft for summative grading",
+   "text": "Formative feedback is meant to help you improve while there is still time; summative grading judges the finished product. The same TA does both here, a week apart."
   },
   {
    "page": 9,
@@ -1270,34 +1282,25 @@
    "id": 53
   },
   {
+   "id": 54,
    "page": 9,
    "lens": 4,
    "rects": [
     [
      317.7,
-     417.7,
-     546.3,
-     429.7
-    ]
-   ],
-   "passage": "The 11 TAs and their corresponding sections were randomly",
-   "text": "How students were sorted into groups: by whole discussion section, not one at a time, because a TA cannot use two different tools at once.",
-   "id": 54
-  },
-  {
-   "page": 9,
-   "lens": 8,
-   "rects": [
+     417.6,
+     559.6,
+     430.1
+    ],
     [
-     317.7,
-     417.7,
-     546.3,
-     429.7
+     317.9,
+     428.6,
+     485.9,
+     441
     ]
    ],
-   "passage": "The 11 TAs and their corresponding sections were randomly",
-   "text": "Randomisation happens at the level of 11 TA sections, but the analysis treats students as the unit with a TA random intercept. With only 11 clusters, that random effect is estimated from very little information. Was a cluster-robust or section-level analysis run as a check, and does the effect survive it?",
-   "id": 55
+   "passage": "The 11 TAs and their corresponding sections were randomly assigned to a condition for Writing Assignment 1",
+   "text": "How students were sorted into groups: by whole discussion section, not one at a time, because a TA cannot use two different tools at once."
   },
   {
    "page": 9,
@@ -1315,27 +1318,28 @@
    "id": 56
   },
   {
+   "id": 57,
    "page": 9,
    "lens": 6,
    "rects": [
     [
-     249,
-     643.1,
-     296.3,
-     655.1
+     170.9,
+     642.9,
+     294,
+     655.3
     ],
     [
      53.8,
-     654.1,
-     205.8,
-     666
+     653.8,
+     273.5,
+     666.2
     ]
    ],
-   "passage": "approved as educational-exempt by the university IRB",
-   "text": "An IRB is the committee that reviews research involving people. 'Educational exempt' means this counted as ordinary teaching practice rather than an experiment on students, so every student received the new tool's feedback and opting out only removed their data from the analysis.",
-   "id": 57
+   "passage": "the deployment was approved as educational-exempt by the university IRB and data stewards",
+   "text": "An IRB is the committee that reviews research involving people. 'Educational exempt' means this counted as ordinary teaching practice rather than an experiment on students, so every student received the new tool's feedback and opting out only removed their data from the analysis."
   },
   {
+   "id": 58,
    "page": 10,
    "lens": 4,
    "rects": [
@@ -1347,8 +1351,7 @@
     ]
    ],
    "passage": "inspected residual-versus-fitted plots",
-   "text": "Routine diagnostic checks confirming the statistical model's assumptions hold. Reporting them is a sign of care; their absence is a common weakness in this literature.",
-   "id": 58
+   "text": "Routine diagnostic checks confirming the statistical model's assumptions hold. Reporting them is a sign of care."
   },
   {
    "page": 10,
@@ -1372,27 +1375,40 @@
    "id": 59
   },
   {
+   "id": 60,
    "page": 10,
    "lens": 1,
    "rects": [
     [
      239.8,
-     610.2,
-     296.3,
-     622.2
+     610,
+     294,
+     622.5
     ],
     [
      53.8,
-     621.2,
-     124.1,
-     633.2
+     621,
+     294.1,
+     633.4
+    ],
+    [
+     53.8,
+     631.9,
+     294.1,
+     644.3
+    ],
+    [
+     53.8,
+     642.9,
+     132.8,
+     655.3
     ]
    ],
-   "passage": "we targeted an effect size of Cohen’s",
-   "text": "A power analysis, done before data collection. Researchers decide how small an effect they want to be able to detect, then calculate how many participants that requires. Here: 350 students needed, 354 enrolled. Doing this in advance is a mark of a carefully planned study.",
-   "id": 60
+   "passage": "we targeted an effect size of Cohen’s 𝑑 = 0.30. With 𝛼 = 0.05, and 1 − 𝛽 = 80%, the minimum number of students needed is 350, and our final dataset included 354 students",
+   "text": "A power analysis, done before data collection. Researchers decide how small an effect they want to be able to detect, then calculate how many participants that requires. Here: 350 students needed, 354 enrolled. Doing this in advance is a mark of a carefully planned study."
   },
   {
+   "id": 61,
    "page": 10,
    "lens": 4,
    "rects": [
@@ -1404,8 +1420,7 @@
     ]
    ],
    "passage": "There are no positive praise in the historical corpus.",
-   "text": "Easy to miss, and it matters. The bank of past comments contained no praise at all, so only the AI condition had a ready source of positive feedback. See my question on page 15.",
-   "id": 61
+   "text": "Easy to miss, and it matters. The bank of past comments contained no praise at all, so only the AI condition had a ready source of positive feedback. See the question on page 15."
   },
   {
    "page": 10,
