@@ -232,15 +232,6 @@ function buildMap() {
   }
 }
 
-function buildAbout(about) {
-  const box = $('#about-text');
-  for (const para of about.split(/\n\s*\n/)) {
-    const p = para.trim();
-    if (!p || /^\d\s/.test(p)) continue; // the lens table is rendered from data below
-    box.append(el('p', null, p.replace(/\s*\n\s*/g, ' ')));
-  }
-}
-
 function renderAboutLenses() {
   const list = $('#about-lenses');
   list.replaceChildren();
@@ -249,7 +240,8 @@ function renderAboutLenses() {
     const dot = el('span', 'chip-dot');
     dot.style.setProperty('--c', lens.colour);
     dot.style.setProperty('--ink', lens.ink);
-    li.append(dot, el('strong', null, `${lens.name} (${lens.count})`), el('span', null, lens.description));
+    const about = lens.description ? lens.description[0].toUpperCase() + lens.description.slice(1) : '';
+    li.append(dot, el('strong', null, `${lens.name} (${lens.count})`), el('span', null, about));
     list.append(li);
   }
 }
@@ -707,6 +699,7 @@ function wireEvents() {
     const k = e.key.toLowerCase();
     if (k === 'm') return toggleTheme(); // also works with the About dialog open
     if (about.open) return;
+    if (k === 's') return toggleSession();
     if (k === 'j' || (S.mobile && k === 'arrowright')) { e.preventDefault(); step(1); }
     else if (k === 'k' || (S.mobile && k === 'arrowleft')) { e.preventDefault(); step(-1); }
     else if (k === 'n') toggleNotes();
@@ -852,6 +845,15 @@ function toggleTheme() {
   prefs.set('theme', next);
 }
 
+/* S signs the author in or out. Outside edit mode it opens ?edit, which loads the editor. */
+function toggleSession() {
+  if (EDIT) return S.editor?.toggleSession(); // absent on phones, where editing is off
+  const params = new URLSearchParams(location.search);
+  params.delete('edit');
+  const rest = params.toString();
+  location.assign(`${location.pathname}?edit${rest ? '&' + rest : ''}${location.hash}`);
+}
+
 function toggleNotes() {
   S.notesOn = !S.notesOn;
   if (!S.notesOn) { closeSheet(); setActive(null); }
@@ -904,7 +906,6 @@ async function main() {
   buildChips();
   buildPages(data.pages);
   buildMap();
-  buildAbout(data.about);
   wireEvents();
   setData(data);
 

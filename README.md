@@ -9,7 +9,7 @@ A reader's edition of *AI-Mediated Feedback Improves Student Revisions: A Random
 - **Download menu:** the paper on its own, or with every note as a highlight and comment.
 - **Mobile:** dots in the page margin open notes in a bottom sheet with previous/next.
 - **Deep links:** `#note-42` opens note 42. Each note has a "Copy link" button.
-- **Keyboard:** `J`/`K` step through notes, `N` hides or shows notes, `M` switches light and dark mode (remembered per browser), `Esc` closes.
+- **Keyboard:** `J`/`K` step through notes, `N` hides or shows notes, `M` switches light and dark mode (remembered per browser), `Esc` closes. `S` is for the author: sign in or out of edit mode.
 
 ## Layout
 
@@ -27,7 +27,7 @@ source/second-pass.pdf         # the PDF the notes were first imported from
 
 ## Editing notes
 
-Open the site with `?edit` (for example `https://matsenas.github.io/chi-mission/?edit`) on a laptop or desktop.
+Press `S` anywhere on the site, or open it with `?edit` (for example `https://matsenas.github.io/chi-mission/?edit`), on a laptop or desktop. In edit mode, `S` signs in (or retries after a failed connection) and, once connected, signs out and returns to the public view. The status next to the info button shows where you are.
 
 - **Add:** select a passage in the paper, click **+ Note**, pick a lens, write, then **Save** (⌘/Ctrl+Enter).
 - **Edit or delete:** open a note in the margin and use **Edit** or **Delete**. Deleting shows an **Undo**. In the editor, **Re-anchor** moves a note to a different passage.

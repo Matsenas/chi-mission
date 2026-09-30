@@ -23,6 +23,8 @@ let base = null; // { sha, data }: the file as last read from GitHub
 let draft = emptyDraft(); // unpublished changes on top of base
 let connected = false;
 let lastLens = 1;
+let busy = false; // connecting
+let leaving = false; // signing out
 
 function emptyDraft() { return { upserts: {}, deletes: [], created: [] }; }
 const changeCount = () => Object.keys(draft.upserts).length + draft.deletes.length;
@@ -40,11 +42,12 @@ export async function initEditor(api) {
 
   if (S.mobile) return toast('Editing works on a laptop or desktop screen.'); // no room in the phone header
   buildBar();
+  S.editor = { toggleSession };
 
   S.hooks.mount.push(decorate);
   wireSelection();
   addEventListener('beforeunload', (e) => {
-    if (changeCount()) { e.preventDefault(); e.returnValue = ''; }
+    if (changeCount() && !leaving) { e.preventDefault(); e.returnValue = ''; }
   });
 
   token = readToken();
@@ -89,7 +92,8 @@ async function loadRemote() {
 }
 
 async function connect() {
-  updateBar({ busy: true });
+  busy = true;
+  updateBar();
   setState('Connecting…');
   try {
     const res = await gh('');
@@ -111,7 +115,9 @@ async function connect() {
     updateBar();
   } catch (err) {
     if (err.auth) { forgetToken(); askToken(err.message); }
-    else { updateBar(); setState(`Could not connect: ${err.message}`, true); }
+    else { updateBar(); setState(`Could not connect: ${err.message}. Press S to retry.`, true); }
+  } finally {
+    busy = false;
   }
 }
 
@@ -216,32 +222,16 @@ function saveDraft() {
 }
 
 /* ---------------- Header bar ----------------
-   Status (dot, label, Sign out / Connect) sits next to the title; Publish is the
-   last control on the right, after Download. */
+   Status (dot and label) sits left of the info button; Publish is the last control
+   on the right, after Download. Signing in and out is the S key. */
 function buildBar() {
   const status = el('div', 'edit-status');
   status.id = 'edit-status';
+  status.title = 'Press S to sign in or out';
   const state = el('span', 'edit-state');
   state.id = 'edit-state';
-  const signOut = el('button', 'link-btn', 'Sign out');
-  signOut.id = 'edit-signout';
-  signOut.type = 'button';
-  signOut.hidden = true;
-  signOut.addEventListener('click', () => {
-    const pending = changeCount();
-    if (pending && !confirm(`Sign out? Your ${pending} unpublished change${pending === 1 ? '' : 's'} stay saved in this browser.`)) return;
-    forgetToken();
-    connected = false;
-    document.body.classList.remove('editing');
-    updateBar();
-  });
-  const connectLink = el('button', 'link-btn', 'Connect');
-  connectLink.id = 'edit-connect';
-  connectLink.type = 'button';
-  connectLink.hidden = true;
-  connectLink.addEventListener('click', () => (token ? connect() : askToken())); // retry, or ask for a token
-  status.append(el('span', 'edit-dot'), state, signOut, connectLink);
-  $('.brand').after(status);
+  status.append(el('span', 'edit-dot'), state);
+  $('.bar-actions').prepend(status);
 
   const publishBtn = el('button', 'edit-btn primary', 'Publish');
   publishBtn.id = 'edit-publish';
@@ -257,18 +247,28 @@ function setState(text, isError) {
   state.classList.toggle('is-error', !!isError);
 }
 
-/* Show the controls that fit the current state. busy: connecting, so offer nothing yet. */
-function updateBar({ busy = false } = {}) {
+function updateBar() {
   const n = changeCount();
   const publishBtn = $('#edit-publish');
   publishBtn.hidden = !connected;
   publishBtn.disabled = !n;
   publishBtn.textContent = n ? `Publish ${n}` : 'Publish';
-  $('#edit-signout').hidden = !connected;
-  $('#edit-connect').hidden = connected || busy;
   $('#edit-status').classList.toggle('is-connected', connected);
   if (!connected) setState('Not connected');
   else setState(n ? `${n} unpublished change${n === 1 ? '' : 's'}` : 'All published');
+}
+
+/* S key: sign out and leave edit mode, or sign in (retrying with a saved token). */
+function toggleSession() {
+  if (busy) return;
+  if (!connected) return token ? connect() : askToken();
+  const pending = changeCount();
+  if (pending && !confirm(`Sign out? Your ${pending} unpublished change${pending === 1 ? ' stays' : 's stay'} saved in this browser.`)) return;
+  forgetToken();
+  leaving = true; // unpublished changes are kept in the draft, so skip the leave-page warning
+  const url = new URL(location.href);
+  url.searchParams.delete('edit');
+  location.replace(url.pathname + url.search + url.hash);
 }
 
 /* ---------------- Token dialog ---------------- */

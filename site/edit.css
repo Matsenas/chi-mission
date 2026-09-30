@@ -1,10 +1,7 @@
 /* Edit mode only: loaded by edit.js when the page is opened with ?edit. */
 body:not(.editing) .edit-only { display: none; }
 
-/* Status sits right after the title; it takes the free space so the actions stay right. */
-.bar-row:first-child .brand { flex: 0 1 auto; }
-.edit-status { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; margin-left: 12px; font-size: 12.5px; }
-.edit-status .link-btn[hidden] { display: none; }
+.edit-status { display: flex; align-items: center; gap: 8px; margin-right: 10px; font-size: 12.5px; min-width: 0; cursor: default; }
 .edit-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); flex-shrink: 0; }
 .edit-status.is-connected .edit-dot { background: #2f9e44; }
 .edit-state { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }

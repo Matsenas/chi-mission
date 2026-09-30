@@ -181,12 +181,12 @@ body.notes-off .gutter, body.notes-off .rail { display: none; }
   top: calc(var(--y) * var(--scale-factor) * 1px);
   width: calc(var(--w) * var(--scale-factor) * 1px);
   height: calc(var(--h) * var(--scale-factor) * 1px);
-  border-bottom: 1.5px solid color-mix(in srgb, var(--ink) 70%, transparent);
   border-radius: 2px;
+  background: color-mix(in srgb, var(--c) 30%, transparent);
   transition: background-color 0.15s;
 }
-.mark.is-hover { background: color-mix(in srgb, var(--c) 60%, transparent); }
-.mark.is-active { background: var(--c); border-bottom-color: var(--ink); }
+.mark.is-hover { background: color-mix(in srgb, var(--c) 65%, transparent); }
+.mark.is-active { background: var(--c); }
 .mark.is-off, body.notes-off .mark { display: none; }
 
 /* ---------- Margin notes (desktop) ---------- */
@@ -341,23 +341,25 @@ body.notes-off .gutter, body.notes-off .rail { display: none; }
 
 /* ---------- About dialog ---------- */
 .about {
-  width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 64px);
+  width: min(620px, calc(100vw - 32px)); max-height: calc(100vh - 64px);
   border: 1px solid var(--line); border-radius: 14px; padding: 24px 24px 20px;
   background: var(--surface); color: var(--text); box-shadow: var(--shadow);
 }
 .about::backdrop { background: rgba(0,0,0,.35); }
 .about h2 { margin: 0 0 10px; font-size: 18px; letter-spacing: -0.01em; }
 .about p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; }
-.about-cite { color: var(--muted); }
+.about a { color: inherit; text-underline-offset: 2px; }
 .about-close { position: absolute; top: 14px; right: 14px; }
-.about-lenses { list-style: none; padding: 0; margin: 14px 0; display: grid; gap: 7px; }
-.about-lenses li { display: grid; grid-template-columns: 14px 150px 1fr; gap: 8px; align-items: baseline; font-size: 13px; }
+/* One grid for the whole list, so the name column fits the longest name. */
+.about-lenses { list-style: none; padding: 0; margin: 14px 0; display: grid; grid-template-columns: 14px max-content 1fr; gap: 7px 10px; align-items: baseline; font-size: 13px; }
+.about-lenses li { display: contents; }
 .about-lenses .chip-dot { transform: translateY(1px); }
 .about-lenses span:last-child { color: var(--muted); }
 .about-keys { color: var(--muted); font-size: 12.5px !important; }
 @media (max-width: 520px) {
-  .about-lenses li { grid-template-columns: 14px 1fr; }
+  .about-lenses { grid-template-columns: 14px 1fr; }
   .about-lenses span:last-child { grid-column: 2; margin-top: -4px; }
+  .about-keys { display: none; } /* no keyboard on phones */
 }
 
 /* ---------- pdf.js text layer (from pdf_viewer.css, v4.10) ---------- */
