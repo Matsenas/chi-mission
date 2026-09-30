@@ -168,7 +168,7 @@
   {
    "id": 133,
    "page": 2,
-   "lens": 1,
+   "lens": 4,
    "rects": [
     [
      143.8,
@@ -202,19 +202,25 @@
    "id": 6
   },
   {
+   "id": 7,
    "page": 2,
    "lens": 3,
    "rects": [
     [
-     114.7,
-     128,
-     294,
-     140
+     114.6,
+     128.1,
+     294.1,
+     140.6
+    ],
+    [
+     53.8,
+     139.1,
+     109.2,
+     151.6
     ]
    ],
-   "passage": "TAs have the full capacity to adopt, edit, or dismiss",
-   "text": "The single most important design decision in the paper. The AI never speaks to students directly. It drafts; a human decides. The authors call this 'AI-mediated' to distinguish it from AI that answers students itself.",
-   "id": 7
+   "passage": "TAs have the full capacity to adopt, edit, or dismiss the suggestions",
+   "text": "Important design decision: AI drafts, then a human decides. The authors call this 'AI-mediated' to distinguish it from AI that answers students itself."
   },
   {
    "page": 2,
@@ -247,6 +253,7 @@
    "id": 9
   },
   {
+   "id": 10,
    "page": 2,
    "lens": 4,
    "rects": [
@@ -258,8 +265,34 @@
     ]
    ],
    "passage": "In total, 1,366 essays were graded using the system.",
-   "text": "The scale of the deployment: 354 students, two assignments each, a first draft and a final draft for each assignment, graded across a full semester.",
-   "id": 10
+   "text": "Each student had two assignments: a first draft and a final draft for each assignment, graded across a full semester. The AI-mediated feedback came between the two assignments."
+  },
+  {
+   "id": 134,
+   "page": 2,
+   "lens": 5,
+   "rects": [
+    [
+     53.8,
+     193.9,
+     294.3,
+     206.3
+    ],
+    [
+     53.8,
+     204.8,
+     294,
+     217.3
+    ],
+    [
+     53.5,
+     215.8,
+     108.3,
+     228.2
+    ]
+   ],
+   "passage": "students receiving AI-mediated feedback produced significantly higher-quality revisions, with gains increasing as TAs adopted more AI suggestions",
+   "text": "Higher TA adoption of AI feedback suggestions correlated with higher improvements for students."
   },
   {
    "page": 2,
@@ -2251,5 +2284,5 @@
    "id": 131
   }
  ],
- "nextId": 134
+ "nextId": 135
 }
