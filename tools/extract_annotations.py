@@ -10,7 +10,7 @@ Usage: python tools/extract_annotations.py [annotated.pdf] [out.json] [--force]
 Each highlight becomes one note: page, highlight rectangles (PDF points,
 top-left origin), the passage underneath, the comment text and its lens.
 The lens comes from the highlight colour, matched against the colour legend
-(FreeText boxes on page 1). A "[Lens name]" or "MY QUESTION" prefix in the
+(FreeText boxes on page 1). A "[Lens name]" or (older files) "MY QUESTION" prefix in the
 comment is used as a fallback and stripped from the note text.
 """
 
@@ -57,8 +57,8 @@ def read_legend(doc):
     descriptions = {int(n): d.strip() for n, d in re.findall(r"^\s*(\d)\s+[^-\n]+-\s+(.+)$", about, re.M)}
     for lens in lenses.values():
         lens["description"] = descriptions.get(lens["id"], "")
-        if lens["name"].startswith("My questions"):
-            lens["name"] = "My questions"
+        if lens["name"].lower().startswith(("my questions", "questions")):
+            lens["name"] = "Questions"
     return lenses, about
 
 
@@ -92,7 +92,7 @@ def main():
                 lens = lens or by_name.get(m.group(1).lower())
                 content = content[m.end():]
             elif content.upper().startswith("MY QUESTION"):
-                lens = lens or by_name["my questions"]
+                lens = lens or by_name["questions"]
                 content = re.sub(r"^MY QUESTION\s*[-–—:]\s*", "", content, flags=re.I)
             if lens is None:
                 raise SystemExit(f"p{page.number + 1}: no lens for annotation {content[:60]!r}")

@@ -3,8 +3,8 @@
 Usage: python tools/build_annotated_pdf.py
 
 Each note becomes a highlight in its lens colour with the note as its comment,
-in the same format as the hand-annotated second-pass PDF: "[Lens name]" before
-the text, or "MY QUESTION - " for the questions lens. Page 1 carries the colour
+prefixed with "[Lens name]" so tools/extract_annotations.py can read it back.
+Page 1 carries the colour
 legend and the about text as a sticky note. Runs on every deploy, so the
 download always matches the notes on the site.
 """
@@ -17,7 +17,6 @@ import pymupdf
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 ANNOTATOR = "Andrius Matsenas"
-QUESTIONS = 8
 
 
 def rgb(hex_colour):
@@ -34,8 +33,7 @@ def main():
         page = doc[n["page"] - 1]
         annot = page.add_highlight_annot([pymupdf.Rect(r) for r in n["rects"]])
         annot.set_colors(stroke=rgb(lens["colour"]))
-        prefix = "MY QUESTION - " if lens["id"] == QUESTIONS else f"[{lens['name']}]\n"
-        annot.set_info(title=ANNOTATOR, subject=lens["name"], content=prefix + n["text"])
+        annot.set_info(title=ANNOTATOR, subject=lens["name"], content=f"[{lens['name']}]\n{n['text']}")
         annot.update()
 
     # Colour legend across the top margin of page 1.
