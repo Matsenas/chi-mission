@@ -232,7 +232,8 @@ body.notes-off .gutter, body.notes-off .rail { display: none; }
   opacity: 0; pointer-events: none; transform: translateY(2px); transition: opacity 0.12s, transform 0.12s;
 }
 .note-icon:hover::after, .note-icon:focus-visible::after, .note-icon.is-copied::after { opacity: 1; transform: none; }
-.note-icon.is-copied { color: var(--text); }
+.note-icon.is-copied, .note-icon.is-on { color: var(--text); }
+.note-icon.tip-start::after { left: 0; right: auto; }
 .link-btn {
   border: 0; background: none; padding: 2px 0; cursor: pointer;
   color: var(--muted); font-size: 11.5px; text-decoration: underline; text-underline-offset: 2px;

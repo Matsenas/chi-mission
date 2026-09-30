@@ -474,9 +474,9 @@ function openComposer({ note, anchor }) {
 
   const foot = el('div', 'composer-foot');
   if (editing) {
-    const move = el('button', 'link-btn', anchor ? 'Passage changed' : 'Re-anchor');
-    move.type = 'button';
-    move.title = 'Pick a different passage in the paper for this note';
+    const move = app.iconButton('reanchor', anchor ? 'Passage changed' : 'Re-anchor: select a new passage', 'Pick a different passage for this note');
+    move.classList.add('tip-start'); // leftmost in the footer, so the tooltip opens rightwards
+    move.classList.toggle('is-on', !!anchor);
     move.addEventListener('click', () => {
       reanchorFor = { note: { ...editing, lens, text: text.value } };
       closeComposer();
