@@ -2,8 +2,8 @@
  "title": "AI-Mediated Feedback Improves Student Revisions: A Randomized Trial with FeedbackWriter in a Large Undergraduate Course",
  "pdf": "paper.pdf",
  "pageSize": [
-  612.0,
-  792.0
+  612,
+  792
  ],
  "pages": 26,
  "about": "Second-pass annotation plan, modelled on the AAAS Science in the Classroom Learning Lens.\n\n  1 Glossary              - plain definitions of AI, education and statistics terms\n  2 Previous work         - what an earlier cited study actually found\n  3 What they built       - how the FeedbackWriter system works and why\n  4 What they did         - the study design, measures and data\n  5 Results & conclusions - findings restated in plain English\n  6 News & policy links   - student privacy, AI in classrooms, grading workload\n  7 Reference notes       - what a specific entry in the reference list contributed\n  8 My questions          - my own questions for the researchers\n\nSets 1-7 are explanatory, written for a reader who is not an HCI researcher: an instructor,\nan instructional designer, an administrator or a student. They define jargon, say what cited\nwork found, explain what was built and done, translate the statistics, and connect the work\nto real-world debates. Following the AAAS model, they do not criticise.\n\nSet 8 is critical rather than explanatory, and is coloured saturated orange so it never\nblends into sets 1-7. Every note in it begins MY QUESTION.\n\nAdaptation note: the AAAS lens has a 'Connect to learning standards' layer for K-12\ncurriculum standards. It does not apply to a graduate HCI paper, so it is omitted.\n'Author's experiments' is split into 'What they built' and 'What they did', because in\nHCI the system is itself a contribution and has no analogue in a lab-science paper.",
@@ -59,19 +59,25 @@
  ],
  "notes": [
   {
+   "id": 1,
    "page": 1,
    "lens": 5,
    "rects": [
     [
-     332.8,
-     604.9,
+     332.7,
+     604.7,
      558.2,
-     616.9
+     617.1
+    ],
+    [
+     53.8,
+     615.7,
+     129.1,
+     628.1
     ]
    ],
-   "passage": "roughly equivalent to moving a student from the 50th to",
-   "text": "A way to picture the size of the improvement. If a student was exactly average in the class (better than 50% of classmates), the same student would now be better than about 70% of them.",
-   "id": 1
+   "passage": "roughly equivalent to moving a student from the 50th to the 70th percentile",
+   "text": "A way to picture the size of the improvement. If a student was exactly average in the class (better than 50% of classmates), the same student would now be better than about 70% of them."
   },
   {
    "page": 1,
@@ -147,7 +153,7 @@
      53.8,
      117.1,
      109.2,
-     129.0
+     129
     ]
    ],
    "passage": "teaching assistants (TAs)",
@@ -160,9 +166,9 @@
    "rects": [
     [
      114.7,
-     128.0,
-     294.0,
-     140.0
+     128,
+     294,
+     140
     ]
    ],
    "passage": "TAs have the full capacity to adopt, edit, or dismiss",
@@ -175,7 +181,7 @@
    "rects": [
     [
      382.5,
-     150.0,
+     150,
      558.2,
      161.9
     ]
@@ -225,7 +231,7 @@
      304.4
     ],
     [
-     318.0,
+     318,
      303.4,
      527.5,
      315.3
@@ -243,7 +249,7 @@
      424.2,
      391.1,
      558.2,
-     403.0
+     403
     ]
    ],
    "passage": "mitigating concerns about unfiltered",
@@ -317,7 +323,7 @@
     [
      143.4,
      610.2,
-     294.0,
+     294,
      622.2
     ]
    ],
@@ -353,7 +359,7 @@
     [
      181.3,
      632.2,
-     294.0,
+     294,
      644.1
     ]
    ],
@@ -366,10 +372,10 @@
    "lens": 3,
    "rects": [
     [
-     348.0,
+     348,
      654.1,
      557.8,
-     666.0
+     666
     ]
    ],
    "passage": "final feedback boxes and scores are deliberately left empty,",
@@ -383,7 +389,7 @@
     [
      102.4,
      697.9,
-     255.0,
+     255,
      709.9
     ]
    ],
@@ -413,7 +419,7 @@
     [
      155.4,
      530.1,
-     294.0,
+     294,
      542.1
     ]
    ],
@@ -428,7 +434,7 @@
     [
      118.9,
      617.8,
-     294.0,
+     294,
      629.8
     ]
    ],
@@ -456,7 +462,7 @@
    "lens": 5,
    "rects": [
     [
-     224.0,
+     224,
      661.6,
      292.5,
      673.6
@@ -477,7 +483,7 @@
      118.1
     ],
     [
-     318.0,
+     318,
      119.8,
      347.2,
      128.8
@@ -564,7 +570,7 @@
      512.6
     ],
     [
-     318.0,
+     318,
      511.6,
      386.5,
      523.6
@@ -609,7 +615,7 @@
    "lens": 4,
    "rects": [
     [
-     318.0,
+     318,
      184.7,
      455.4,
      196.6
@@ -625,9 +631,9 @@
    "rects": [
     [
      362.3,
-     318.0,
+     318,
      451.1,
-     330.0
+     330
     ]
    ],
    "passage": "may have hallucinations",
@@ -640,7 +646,7 @@
    "rects": [
     [
      53.8,
-     364.0,
+     364,
      114.5,
      375.9
     ]
@@ -681,7 +687,7 @@
      450.5
     ],
     [
-     318.0,
+     318,
      449.5,
      447.3,
      461.5
@@ -713,19 +719,25 @@
    "id": 40
   },
   {
+   "id": 41,
    "page": 5,
    "lens": 3,
    "rects": [
     [
      320.6,
-     533.5,
+     533.4,
      558.2,
-     545.5
+     545.8
+    ],
+    [
+     342.3,
+     544.3,
+     401.2,
+     556.7
     ]
    ],
-   "passage": "DG1 Facilitate feedback provision while adding minimal",
-   "text": "Design goals are the requirements the team wrote down before building, each traceable to something observed in the formative study. DG3 in particular, making AI mistakes easy to spot and fix, is what the conclusion later credits for the result.",
-   "id": 41
+   "passage": "DG1 Facilitate feedback provision while adding minimal cognitive load.",
+   "text": "Design goals are the requirements the team wrote down before building, each traceable to something observed in the formative study. DG3 in particular, making AI mistakes easy to spot and fix, is what the conclusion later credits for the result."
   },
   {
    "page": 7,
@@ -754,13 +766,13 @@
    "rects": [
     [
      207.8,
-     139.0,
+     139,
      296.3,
-     151.0
+     151
     ],
     [
      53.8,
-     150.0,
+     150,
      97.3,
      161.9
     ]
@@ -810,9 +822,9 @@
    "lens": 3,
    "rects": [
     [
-     199.0,
+     199,
      347.2,
-     294.0,
+     294,
      359.2
     ]
    ],
@@ -828,13 +840,13 @@
      274.7,
      391.1,
      296.3,
-     403.0
+     403
     ],
     [
      53.8,
-     402.0,
+     402,
      276.7,
-     414.0
+     414
     ]
    ],
    "passage": "three instructor-provided exemplar questions for few-shot guidance",
@@ -898,9 +910,9 @@
    "rects": [
     [
      357.6,
-     128.0,
-     536.0,
-     140.0
+     128,
+     536,
+     140
     ]
    ],
    "passage": "De-identified essays were processed via OpenAI’s",
@@ -920,7 +932,7 @@
     [
      53.8,
      207.7,
-     294.0,
+     294,
      219.6
     ]
    ],
@@ -933,10 +945,10 @@
    "lens": 4,
    "rects": [
     [
-     390.0,
+     390,
      218.1,
      557.2,
-     230.0
+     230
     ]
    ],
    "passage": "a baseline system that is a visually matched,",
@@ -993,7 +1005,7 @@
    "lens": 6,
    "rects": [
     [
-     249.0,
+     249,
      643.1,
      296.3,
      655.1
@@ -1002,7 +1014,7 @@
      53.8,
      654.1,
      205.8,
-     666.0
+     666
     ]
    ],
    "passage": "approved as educational-exempt by the university IRB",
@@ -1014,7 +1026,7 @@
    "lens": 4,
    "rects": [
     [
-     318.0,
+     318,
      405.5,
      456.1,
      417.5
@@ -1035,7 +1047,7 @@
      523.6
     ],
     [
-     318.0,
+     318,
      522.6,
      362.8,
      534.5
@@ -1087,7 +1099,7 @@
    "rects": [
     [
      53.8,
-     676.0,
+     676,
      193.7,
      687.9
     ]
@@ -1155,7 +1167,7 @@
      429.7,
      391.1,
      494.6,
-     403.0
+     403
     ]
    ],
    "passage": "computing Cohen’s",
@@ -1167,7 +1179,7 @@
    "lens": 5,
    "rects": [
     [
-     288.0,
+     288,
      405.7,
      296.6,
      417.6
@@ -1294,13 +1306,13 @@
    "rects": [
     [
      458.8,
-     473.0,
+     473,
      560.7,
-     485.0
+     485
     ],
     [
-     318.0,
-     484.0,
+     318,
+     484,
      431.5,
      495.9
     ]
@@ -1314,7 +1326,7 @@
    "lens": 5,
    "rects": [
     [
-     318.0,
+     318,
      505.9,
      479.7,
      517.9
@@ -1431,7 +1443,7 @@
      644.1
     ],
     [
-     318.0,
+     318,
      643.1,
      508.5,
      655.1
@@ -1446,16 +1458,16 @@
    "lens": 5,
    "rects": [
     [
-     288.0,
+     288,
      654.1,
      296.6,
-     666.0
+     666
     ],
     [
      53.8,
-     665.0,
+     665,
      292.5,
-     677.0
+     677
     ]
    ],
    "passage": "A plausible explanation for the null condition effect is limited prac­",
@@ -1514,7 +1526,7 @@
     [
      97.4,
      596.7,
-     294.0,
+     294,
      608.6
     ]
    ],
@@ -1580,7 +1592,7 @@
     [
      327.9,
      621.2,
-     521.0,
+     521,
      633.2
     ]
    ],
@@ -1624,7 +1636,7 @@
    "rects": [
     [
      214.4,
-     206.0,
+     206,
      228.9,
      214.9
     ]
@@ -1819,9 +1831,9 @@
    "rects": [
     [
      384.6,
-     265.0,
+     265,
      558.2,
-     277.0
+     277
     ]
    ],
    "passage": "This study provides suggestive evidence on",
@@ -1848,7 +1860,7 @@
    "lens": 6,
    "rects": [
     [
-     318.0,
+     318,
      418.5,
      502.9,
      430.4
@@ -1863,7 +1875,7 @@
    "lens": 5,
    "rects": [
     [
-     320.0,
+     320,
      558.2,
      375.2,
      567.1
@@ -1878,7 +1890,7 @@
    "lens": 1,
    "rects": [
     [
-     346.0,
+     346,
      632.2,
      558.4,
      644.1
@@ -1955,7 +1967,7 @@
     [
      78.2,
      643.1,
-     294.0,
+     294,
      655.1
     ]
    ],
@@ -2012,7 +2024,7 @@
     [
      150.2,
      347.2,
-     294.0,
+     294,
      359.2
     ]
    ],
@@ -2041,8 +2053,8 @@
    "rects": [
     [
      124.2,
-     174.0,
-     210.0,
+     174,
+     210,
      183.3
     ]
    ],
@@ -2057,7 +2069,7 @@
     [
      178.1,
      189.9,
-     294.0,
+     294,
      199.2
     ]
    ],
@@ -2072,7 +2084,7 @@
     [
      513.2,
      293.5,
-     560.0,
+     560,
      302.8
     ],
     [
@@ -2107,7 +2119,7 @@
    "rects": [
     [
      149.2,
-     437.0,
+     437,
      294.2,
      446.3
     ]
@@ -2157,10 +2169,10 @@
    "lens": 7,
    "rects": [
     [
-     127.0,
+     127,
      516.7,
      251.5,
-     526.0
+     526
     ]
    ],
    "passage": "Principles of mixed-initiative user interfaces.",
