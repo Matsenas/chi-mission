@@ -89,6 +89,7 @@ async function loadRemote() {
 }
 
 async function connect() {
+  updateBar({ busy: true });
   setState('Connecting…');
   try {
     const res = await gh('');
@@ -110,7 +111,7 @@ async function connect() {
     updateBar();
   } catch (err) {
     if (err.auth) { forgetToken(); askToken(err.message); }
-    else setState(`Could not connect: ${err.message}`, true);
+    else { updateBar(); setState(`Could not connect: ${err.message}`, true); }
   }
 }
 
@@ -214,22 +215,19 @@ function saveDraft() {
   updateBar();
 }
 
-/* ---------------- Header bar ---------------- */
+/* ---------------- Header bar ----------------
+   Status (dot, label, Sign out / Connect) sits next to the title; Publish is the
+   last control on the right, after Download. */
 function buildBar() {
-  const bar = el('div', 'edit-bar');
-  bar.id = 'edit-bar';
+  const status = el('div', 'edit-status');
+  status.id = 'edit-status';
   const state = el('span', 'edit-state');
   state.id = 'edit-state';
-  const publishBtn = el('button', 'edit-btn primary', 'Publish');
-  publishBtn.id = 'edit-publish';
-  publishBtn.type = 'button';
-  publishBtn.disabled = true;
-  publishBtn.addEventListener('click', publish);
-  const account = el('button', 'link-btn', 'Sign out');
-  account.id = 'edit-account';
-  account.type = 'button';
-  account.addEventListener('click', () => {
-    if (!connected) return askToken();
+  const signOut = el('button', 'link-btn', 'Sign out');
+  signOut.id = 'edit-signout';
+  signOut.type = 'button';
+  signOut.hidden = true;
+  signOut.addEventListener('click', () => {
     const pending = changeCount();
     if (pending && !confirm(`Sign out? Your ${pending} unpublished change${pending === 1 ? '' : 's'} stay saved in this browser.`)) return;
     forgetToken();
@@ -237,8 +235,20 @@ function buildBar() {
     document.body.classList.remove('editing');
     updateBar();
   });
-  bar.append(el('span', 'edit-dot'), state, publishBtn, account);
-  $('.bar-actions').prepend(bar);
+  const connectLink = el('button', 'link-btn', 'Connect');
+  connectLink.id = 'edit-connect';
+  connectLink.type = 'button';
+  connectLink.hidden = true;
+  connectLink.addEventListener('click', () => (token ? connect() : askToken())); // retry, or ask for a token
+  status.append(el('span', 'edit-dot'), state, signOut, connectLink);
+  $('.brand').after(status);
+
+  const publishBtn = el('button', 'edit-btn primary', 'Publish');
+  publishBtn.id = 'edit-publish';
+  publishBtn.type = 'button';
+  publishBtn.hidden = true;
+  publishBtn.addEventListener('click', publish);
+  $('.bar-actions').append(publishBtn);
 }
 
 function setState(text, isError) {
@@ -247,16 +257,18 @@ function setState(text, isError) {
   state.classList.toggle('is-error', !!isError);
 }
 
-function updateBar() {
+/* Show the controls that fit the current state. busy: connecting, so offer nothing yet. */
+function updateBar({ busy = false } = {}) {
   const n = changeCount();
   const publishBtn = $('#edit-publish');
   publishBtn.hidden = !connected;
   publishBtn.disabled = !n;
   publishBtn.textContent = n ? `Publish ${n}` : 'Publish';
-  $('#edit-account').textContent = connected ? 'Sign out' : 'Connect';
-  $('#edit-bar').classList.toggle('is-connected', connected);
-  if (!connected) setState('Editing: not connected');
-  else setState(n ? `${n} unpublished change${n === 1 ? '' : 's'}` : 'Editing: all published');
+  $('#edit-signout').hidden = !connected;
+  $('#edit-connect').hidden = connected || busy;
+  $('#edit-status').classList.toggle('is-connected', connected);
+  if (!connected) setState('Not connected');
+  else setState(n ? `${n} unpublished change${n === 1 ? '' : 's'}` : 'All published');
 }
 
 /* ---------------- Token dialog ---------------- */
