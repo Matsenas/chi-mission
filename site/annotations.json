@@ -151,6 +151,7 @@
    "text": "Suggests tools that use AI to comment on student writing have been built, but almost no research has been done on whether students' work actually improved afterwards. That is the hole this study sets out to fill."
   },
   {
+   "id": 5,
    "page": 2,
    "lens": 1,
    "rects": [
@@ -162,8 +163,22 @@
     ]
    ],
    "passage": "randomized controlled trial",
-   "text": "The strongest everyday test of whether something works. People are sorted into groups by chance, so the groups start out alike and any later difference can be credited to the treatment rather than to who ended up where. Common in medicine; still rare in studies of classroom software.",
-   "id": 5
+   "text": "The strongest everyday test of whether something works. People are sorted into groups by chance, so the groups start out alike and any later difference can be credited to the treatment rather than to who ended up where. Common in medicine."
+  },
+  {
+   "id": 133,
+   "page": 2,
+   "lens": 1,
+   "rects": [
+    [
+     143.8,
+     95.3,
+     167.8,
+     107.7
+    ]
+   ],
+   "passage": "N=354",
+   "text": "Number of participants (students) involved."
   },
   {
    "page": 2,
@@ -2236,5 +2251,5 @@
    "id": 131
   }
  ],
- "nextId": 133
+ "nextId": 134
 }
