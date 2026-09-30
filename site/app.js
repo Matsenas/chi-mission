@@ -108,22 +108,34 @@ function buildPages(count) {
   }
 }
 
-/* Small chain-link icon that copies a link to the note; its tooltip confirms the copy. */
-function linkButton(id) {
-  const b = el('button', 'link-icon');
+/* Small icon buttons in an open note (link; edit and delete in edit mode), each with a tooltip. */
+const ICONS = {
+  link: ['M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71', 'M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'],
+  pencil: ['M21.17 6.81a1 1 0 0 0-3.99-3.99L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z', 'm15 5 4 4'],
+  trash: ['M3 6h18', 'M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6', 'M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'],
+};
+
+function iconButton(icon, tip, label) {
+  const b = el('button', 'note-icon');
   b.type = 'button';
-  b.dataset.copy = id;
-  b.dataset.tip = 'Copy link';
-  b.setAttribute('aria-label', 'Copy link to this note');
+  b.dataset.tip = tip;
+  b.setAttribute('aria-label', label);
   const svg = document.createElementNS(SVG, 'svg');
   svg.setAttribute('viewBox', '0 0 24 24');
   svg.setAttribute('aria-hidden', 'true');
-  for (const d of ['M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71', 'M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71']) {
+  for (const d of ICONS[icon]) {
     const path = document.createElementNS(SVG, 'path');
     path.setAttribute('d', d);
     svg.append(path);
   }
   b.append(svg);
+  return b;
+}
+
+/* Copies a link to the note; its tooltip confirms the copy. */
+function linkButton(id) {
+  const b = iconButton('link', 'Copy link', 'Copy link to this note');
+  b.dataset.copy = id;
   return b;
 }
 
@@ -967,7 +979,7 @@ async function main() {
   if (EDIT) {
     import('./edit.js')
       .then(({ initEditor }) => initEditor({
-        S, $, el, prefs, setData, upsertNote, removeNote, openNote, setOpen, setActive, applyFilter, layoutRail, byPosition,
+        S, $, el, prefs, setData, upsertNote, removeNote, openNote, setOpen, setActive, applyFilter, layoutRail, byPosition, iconButton,
       }))
       .catch((err) => console.error('Edit mode failed to load', err));
   }

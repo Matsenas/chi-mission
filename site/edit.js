@@ -328,9 +328,9 @@ function askToken(message = '') {
 
 /* ---------------- Notes: edit and delete buttons ---------------- */
 function decorate(n) {
-  const edit = el('button', 'link-btn', 'Edit');
-  const del = el('button', 'link-btn', 'Delete');
-  for (const b of [edit, del]) { b.type = 'button'; b.classList.add('edit-only'); }
+  const edit = app.iconButton('pencil', 'Edit note', 'Edit this note');
+  const del = app.iconButton('trash', 'Delete note', 'Delete this note');
+  for (const b of [edit, del]) b.classList.add('edit-only');
   edit.addEventListener('click', (e) => { e.stopPropagation(); openComposer({ note: S.byId.get(n.id) }); });
   del.addEventListener('click', (e) => { e.stopPropagation(); deleteNote(n.id); });
   n.actions.prepend(edit, del);
