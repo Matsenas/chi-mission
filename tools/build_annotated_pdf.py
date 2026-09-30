@@ -5,11 +5,12 @@ Usage: python tools/build_annotated_pdf.py
 Each note becomes a highlight in its lens colour with the note as its comment,
 prefixed with "[Lens name]" so tools/extract_annotations.py can read it back.
 Page 1 carries the colour
-legend and the about text as a sticky note. Runs on every deploy, so the
+legend and, as a sticky note, the about text and category list. Runs on every deploy, so the
 download always matches the notes on the site.
 """
 
 import json
+import re
 from pathlib import Path
 
 import pymupdf
@@ -55,7 +56,12 @@ def main():
         x += width + 4
 
     if data.get("about"):
-        note = first.add_text_annot((573, 35), data["about"], icon="Note")
+        # Same text as the site's About dialog, then the categories and the links.
+        link = re.compile(r"\[([^\]]+)\]\((https://[^\s)]+)\)")
+        about = link.sub(r"\1", data["about"])
+        urls = "\n".join(url for _, url in link.findall(data["about"]))
+        legend = "\n".join(f"{l['id']} {l['name']} - {l['description']}" for l in data["lenses"])
+        note = first.add_text_annot((573, 35), "\n\n".join(filter(None, [about, legend, urls])), icon="Note")
         note.set_info(title=ANNOTATOR)
         note.update()
 

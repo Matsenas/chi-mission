@@ -59,6 +59,9 @@ def read_legend(doc):
         lens["description"] = descriptions.get(lens["id"], "")
         if lens["name"].lower().startswith(("my questions", "questions")):
             lens["name"] = "Questions"
+    # The category list is rebuilt from the lenses, so keep only the prose.
+    about = re.sub(r"^\s*\d\s+[^-\n]+-\s+.+$\n?", "", about, flags=re.M)
+    about = re.sub(r"\n{3,}", "\n\n", about).strip()
     return lenses, about
 
 
@@ -118,7 +121,6 @@ def main():
 
     first = doc[0].rect
     data = {
-        "title": doc.metadata.get("title", "").strip(),
         "pdf": "paper.pdf",
         "pageSize": [first.width, first.height],
         "pages": doc.page_count,

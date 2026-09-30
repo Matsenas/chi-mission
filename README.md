@@ -35,6 +35,8 @@ Press `S` anywhere on the site, or open it with `?edit` (for example `https://ma
 
 Note ids are never reused, so `#note-N` links keep pointing at the same note.
 
+The About dialog's text is the `about` field in `site/annotations.json`. Edit it there: a blank line starts a new paragraph and `[text](https://…)` makes a link. The same text, with the category list, becomes the sticky note on page 1 of the annotated PDF.
+
 ### The GitHub token
 
 Edit mode needs a fine-grained personal access token:

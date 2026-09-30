@@ -196,6 +196,7 @@ function refresh() {
 function setData(data) {
   for (const n of S.notes) unmountNote(n);
   S.data = data;
+  renderAbout(data.about);
   S.notes = data.notes.map((n) => ({ ...n }));
   for (const n of S.notes) mountNote(n);
   refresh();
@@ -229,6 +230,29 @@ function buildMap() {
   for (const p of S.pages) {
     p.mini = el('div', 'map-page');
     $('#map-pages').append(p.mini);
+  }
+}
+
+/* The About text lives in annotations.json. Blank lines split paragraphs, and
+   [text](https://…) becomes a link. Everything else is inserted as plain text. */
+function renderAbout(about = '') {
+  const box = $('#about-text');
+  box.replaceChildren();
+  for (const para of about.split(/\n\s*\n/).map((t) => t.trim())) {
+    if (!para) continue;
+    const p = el('p');
+    let last = 0;
+    for (const m of para.matchAll(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g)) {
+      p.append(para.slice(last, m.index));
+      const a = el('a', null, m[1]);
+      a.href = m[2];
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      p.append(a);
+      last = m.index + m[0].length;
+    }
+    p.append(para.slice(last));
+    box.append(p);
   }
 }
 

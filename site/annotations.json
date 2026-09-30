@@ -1,12 +1,11 @@
 {
- "title": "AI-Mediated Feedback Improves Student Revisions: A Randomized Trial with FeedbackWriter in a Large Undergraduate Course",
  "pdf": "paper.pdf",
  "pageSize": [
   612,
   792
  ],
  "pages": 26,
- "about": "Second-pass annotation plan, modelled on the AAAS Science in the Classroom Learning Lens.\n\n  1 Glossary              - plain definitions of AI, education and statistics terms\n  2 Previous work         - what an earlier cited study actually found\n  3 What they built       - how the FeedbackWriter system works and why\n  4 What they did         - the study design, measures and data\n  5 Results & conclusions - findings restated in plain English\n  6 News & policy links   - student privacy, AI in classrooms, grading workload\n  7 Reference notes       - what a specific entry in the reference list contributed\n  8 My questions          - my own questions for the researchers\n\nSets 1-7 are explanatory, written for a reader who is not an HCI researcher: an instructor,\nan instructional designer, an administrator or a student. They define jargon, say what cited\nwork found, explain what was built and done, translate the statistics, and connect the work\nto real-world debates. Following the AAAS model, they do not criticise.\n\nSet 8 is critical rather than explanatory, and is coloured saturated orange so it never\nblends into sets 1-7. Every note in it begins MY QUESTION.\n\nAdaptation note: the AAAS lens has a 'Connect to learning standards' layer for K-12\ncurriculum standards. It does not apply to a graduate HCI paper, so it is omitted.\n'Author's experiments' is split into 'What they built' and 'What they did', because in\nHCI the system is itself a contribution and has no analogue in a lab-science paper.",
+ "about": "Annotations on [AI-Mediated Feedback Improves Student Revisions](https://arxiv.org/abs/2602.16820) (Lu et al., CHI ’26) as part of CHI Mission and the INST 631 Fundamentals of HCI course at the University of Maryland, College Park. They follow the AAAS Science in the Classroom Learning Lens, adapted for an HCI paper. Annotations are grouped in the following categories:",
  "lenses": [
   {
    "id": 1,
